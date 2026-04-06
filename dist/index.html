@@ -51,7 +51,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 @media(max-width:900px){#side-rail-left,#side-rail-right{display:none}}
 
 /* APP ROOT */
-#app-root{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh;margin-left:var(--p-rail-w);margin-right:var(--p-rail-w)}
+#app-root{position:relative;z-index:1;display:flex;flex-direction:column;min-height:100vh}
 @media(max-width:900px){#app-root{margin:0}}
 
 /* TOP BAR */
@@ -857,8 +857,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   <div id="light-orb2"></div>
   <div id="light-orb3"></div>
   <!-- Arknights Side Rails -->
-  <div id="side-rail-left"><span class="rail-label rail-label-top">SYSTEM // MONITOR</span><span class="rail-label rail-label-mid">KOMARI</span><span class="rail-label rail-label-bot">PRTS v1.0.0</span></div>
-  <div id="side-rail-right"><span class="rail-indicator rail-indicator-page">01 / 01 DASHBOARD</span></div>
   <div id="app-root">
     <!-- v2.1 Endfield Marquee -->
     <div class="top-marquee"><div class="top-marquee-inner" id="top-marquee-inner"></div></div>
