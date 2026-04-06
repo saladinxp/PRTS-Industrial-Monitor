@@ -911,7 +911,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .va-bar{height:3px;background:var(--p-border);overflow:hidden}
 .va-bar-fill{height:100%;transition:width .3s linear}
 .lv-safe .va-bar-fill{background:var(--p-accent)}.lv-warn .va-bar-fill{background:var(--p-warn)}.lv-alert .va-bar-fill{background:var(--p-danger)}
-.va-close{background:transparent;border:1px solid var(--p-border);color:var(--p-text-dim);font-family:var(--p-mono);font-size:10px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;transition:.2s;position:absolute;top:10px;right:10px;line-height:1;opacity:.45}
+.va-close{background:transparent;border:1px solid var(--p-border);color:var(--p-text-dim);font-family:var(--p-mono);font-size:10px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;transition:.2s;position:absolute;top:10px;right:10px;line-height:1;opacity:.45;z-index:10}
 .va-close:hover{color:var(--p-danger);border-color:rgba(var(--p-danger-rgb),.3);opacity:1}
 .va-fi{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}.va-fi.va-vis{opacity:1;transform:translateY(0)}
 @media(max-width:600px){.va-box{width:calc(100vw - 24px)}.va-ip-v{font-size:18px}#visitor-alert-overlay{bottom:12px;right:12px}.va-fields{grid-template-columns:1fr}}
