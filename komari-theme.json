@@ -4,7 +4,7 @@
     "description": "工业结构美监控面板主题 · Industrial Structural Beauty",
     "version": "1.0.0",
     "author": "Miuler",
-    "url": "",
+    "url": "https://github.com/saladinxp/PRTS-Industrial-Monitor",
     "preview": "dist/preview.png",
     "configuration": {
         "type": "managed",
