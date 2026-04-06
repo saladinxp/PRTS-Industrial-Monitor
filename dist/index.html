@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Share+Tech+Mono&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   PRTS THEME v1.0.0 — World Map + Zoom + Dark Enhancement — Endfield Structural Beauty
+   PRTS THEME v1.0.1 — World Map + Zoom + Dark Enhancement — Endfield Structural Beauty
    Design: Endfield工业结构美 · 双色策略蓝+黄 · 虚线边界 · 大字锚点
    ============================================================ */
 :root {
@@ -497,7 +497,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .wmap-node-dot.off{background:var(--p-danger);opacity:.6}
 .wmap-node-name{color:var(--p-text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wmap-node-region{color:var(--p-text-dim);font-size:9px;flex-shrink:0}
-/* ===== RESPONSIVE — MOBILE ADAPTATION v1.0.0 ===== */
+/* ===== RESPONSIVE — MOBILE ADAPTATION v1.0.1 ===== */
 
 /* --- Tablet ≤900px --- */
 @media(max-width:900px){
@@ -903,7 +903,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .va-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;padding:12px 16px 0 18px}
 .va-f{display:flex;flex-direction:column;gap:1px}
 .va-f-k{font-family:var(--p-mono);font-size:7px;letter-spacing:2px;color:var(--p-text-dim)}
-.va-f-v{font-family:var(--p-sans);font-size:12px;font-weight:600;color:var(--p-text-secondary);line-height:1.2}
+.va-f-v{font-family:var(--p-sans);font-size:12px;font-weight:600;color:var(--p-text-secondary);line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .va-bot{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 0 18px}
 .va-bot-l{display:flex;flex-direction:column;gap:1px}
 .va-bot-r{display:flex;flex-direction:column;gap:1px;text-align:right}
@@ -911,8 +911,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .va-bar{height:3px;background:var(--p-border);overflow:hidden}
 .va-bar-fill{height:100%;transition:width .3s linear}
 .lv-safe .va-bar-fill{background:var(--p-accent)}.lv-warn .va-bar-fill{background:var(--p-warn)}.lv-alert .va-bar-fill{background:var(--p-danger)}
-.va-close{background:transparent;border:1px solid var(--p-border-strong);color:var(--p-text-dim);font-family:var(--p-mono);font-size:8px;padding:2px 7px;cursor:pointer;transition:.2s;letter-spacing:1px;position:absolute;top:10px;right:10px}
-.va-close:hover{color:var(--p-danger);border-color:rgba(var(--p-danger-rgb),.3)}
+.va-close{background:transparent;border:1px solid var(--p-border);color:var(--p-text-dim);font-family:var(--p-mono);font-size:9px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;transition:.2s;letter-spacing:0;position:absolute;top:10px;right:10px;line-height:1;opacity:.5}
+.va-close:hover{color:var(--p-danger);border-color:rgba(var(--p-danger-rgb),.3);opacity:1}
 .va-fi{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}.va-fi.va-vis{opacity:1;transform:translateY(0)}
 @media(max-width:600px){.va-box{width:calc(100vw - 24px)}.va-ip-v{font-size:18px}#visitor-alert-overlay{bottom:12px;right:12px}.va-fields{grid-template-columns:1fr}}
 
@@ -923,7 +923,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   <!-- Visitor Alert — Terminal Event Card -->
   <div id="visitor-alert-overlay">
     <div class="va-box lv-safe" id="va-box">
-      <button class="va-close" id="va-close">✕</button>
+      <button class="va-close" id="va-close">⊠</button>
       <div class="va-hd va-fi">
         <div class="va-hd-left">
           <div class="va-hd-sec">EXTERNAL EVENT FEED</div>
@@ -996,7 +996,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
     </div>
     <div id="tech-quota-bar"><span>QUOTA</span><div class="quota-track"><div class="quota-fill" id="quota-fill"></div></div><span id="quota-status">AWAITING DATA</span></div>
     <nav id="tech-nav">
-      <div class="nav-brand" id="nav-home"><span class="nav-title">KOMARI</span><span class="nav-subtitle">Monitor</span><div class="nav-hud-left"><div class="hud-ring"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(0,184,212,0.15)" stroke-width="1.5"/><circle cx="24" cy="24" r="20" fill="none" stroke="var(--p-accent)" stroke-width="1.5" stroke-dasharray="40 86" stroke-linecap="round" class="hud-ring-arc"/><circle cx="24" cy="24" r="14" fill="none" stroke="rgba(0,184,212,0.1)" stroke-width="1"/><circle cx="24" cy="24" r="3" fill="var(--p-accent)" opacity="0.6"/></svg></div><div class="hud-left-text"><div class="hud-label">SYS.VER</div><div class="hud-val" id="hud-ver">v1.0.0</div><div class="hud-label" style="margin-top:4px">UPTIME</div><div class="hud-val" id="hud-uptime">--:--:--</div></div></div></div>
+      <div class="nav-brand" id="nav-home"><span class="nav-title">KOMARI</span><span class="nav-subtitle">Monitor</span><div class="nav-hud-left"><div class="hud-ring"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(0,184,212,0.15)" stroke-width="1.5"/><circle cx="24" cy="24" r="20" fill="none" stroke="var(--p-accent)" stroke-width="1.5" stroke-dasharray="40 86" stroke-linecap="round" class="hud-ring-arc"/><circle cx="24" cy="24" r="14" fill="none" stroke="rgba(0,184,212,0.1)" stroke-width="1"/><circle cx="24" cy="24" r="3" fill="var(--p-accent)" opacity="0.6"/></svg></div><div class="hud-left-text"><div class="hud-label">SYS.VER</div><div class="hud-val" id="hud-ver">v1.0.1</div><div class="hud-label" style="margin-top:4px">UPTIME</div><div class="hud-val" id="hud-uptime">--:--:--</div></div></div></div>
       <div class="nav-controls"><div class="nav-hud-right"><div class="hud-bars"><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-cpu-bar"></div></div><span class="hud-bar-label">CPU</span></div><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-mem-bar"></div></div><span class="hud-bar-label">MEM</span></div><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-net-bar"></div></div><span class="hud-bar-label">NET</span></div></div><div class="hud-right-text"><div class="hud-label">NODES</div><div class="hud-val" id="hud-nodes">--/--</div></div></div><input type="text" class="nav-search" id="search-input" placeholder="搜索: 名称/分组/标签/系统..."><button class="nav-btn" id="btn-theme" title="切换主题">◐</button><button class="nav-btn" id="btn-auth" title="登录">⎆</button></div>
     </nav>
     <!-- DASHBOARD -->
@@ -1138,7 +1138,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
       <div class="bl-cards" id="billCards"></div>
     </div>
 
-    <div id="tech-footer"><div class="ft-brand-strip"><span>KOMARI MONITOR</span><span class="fbs-sep">/</span><span>PRTS INDUSTRIAL</span></div><div class="ft-color-bar"></div><div class="footer-meta"><span class="theme-version">PRTS v1.0.0</span><span class="footer-sep">//</span><span class="theme-author"><span class="author-bracket">&#x27E8;</span> ENGINEERED BY <a href="https://github.com/saladinxp" target="_blank" rel="noopener" class="author-name">MIULER</a> <span class="author-bracket">&#x27E9;</span></span><span class="footer-sep">//</span><span class="powered-by">Powered by <a href="https://github.com/komari-monitor/komari" target="_blank" rel="noopener">Komari Monitor</a></span></div></div>
+    <div id="tech-footer"><div class="ft-brand-strip"><span>KOMARI MONITOR</span><span class="fbs-sep">/</span><span>PRTS INDUSTRIAL</span></div><div class="ft-color-bar"></div><div class="footer-meta"><span class="theme-version">PRTS v1.0.1</span><span class="footer-sep">//</span><span class="theme-author"><span class="author-bracket">&#x27E8;</span> ENGINEERED BY <a href="https://github.com/saladinxp" target="_blank" rel="noopener" class="author-name">MIULER</a> <span class="author-bracket">&#x27E9;</span></span><span class="footer-sep">//</span><span class="powered-by">Powered by <a href="https://github.com/komari-monitor/komari" target="_blank" rel="noopener">Komari Monitor</a></span></div></div>
 <!-- [v2.0.0] Endfield Settings Panel -->
 <div id="tv-gear" title="Settings"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
 <div id="tv-overlay"></div>
@@ -1156,7 +1156,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 <div class="tvs-row on" data-key="marquee_enabled"><span class="tvs-dot"></span><div class="tvs-info"><div class="tvs-name">顶部滚动文字</div><div class="tvs-meta"><span class="tvs-desc">MARQUEE SCROLL</span><span class="tvs-cost tvs-cost-l">LOW</span></div></div><label class="tvs-sw"><input type="checkbox" checked><span class="tvs-track"></span><span class="tvs-knob"></span></label></div>
 <div class="tvs-row on" data-key="ghost_text_enabled"><span class="tvs-dot"></span><div class="tvs-info"><div class="tvs-name">背景大字</div><div class="tvs-meta"><span class="tvs-desc">GHOST TEXT</span><span class="tvs-cost tvs-cost-l">LOW</span></div></div><label class="tvs-sw"><input type="checkbox" checked><span class="tvs-track"></span><span class="tvs-knob"></span></label></div>
 </div>
-<div class="tvs-footer"><span>PRTS CONFIG</span><span style="opacity:.5">v1.0.0</span></div>
+<div class="tvs-footer"><span>PRTS CONFIG</span><span style="opacity:.5">v1.0.1</span></div>
 </div>
   </div>
 
@@ -1473,7 +1473,7 @@ function showP(p){document.querySelectorAll('.page').forEach(function(e){e.class
 function nav(path){history.pushState(null,'',path);hRoute()}
 function hRoute(){var p=location.pathname;if(p==='/billing'){showP('billing');if(!S._ratesFetched){fetchRates().then(function(){rBilling()})}else{rBilling()}return}if(p==='/stability'){showP('stability');loadStabilityData();return}if(p==='/worldmap'){showP('worldmap');initWorldMap();return}if(p.match(/^\/detail\//)){var uuid=p.replace('/detail/','');openDet(uuid)}else{showP('dashboard');S.detailUUID=null}}
 // Groups
-function exG(){var seen={};S.nodes.forEach(function(n){if(n.group)seen[n.group]=1});S.groups=Object.keys(seen);rGF()}
+function exG(){var seen={};S.nodes.forEach(function(n){if(n.group)seen[n.group]=1});S.groups=Object.keys(seen);if(S.currentGroup&&S.groups.indexOf(S.currentGroup)===-1){S.currentGroup=null;localStorage.removeItem('nodeSelectedGroup')}rGF()}
 function rGF(){var c=document.getElementById('group-filter');if(!c)return;var h='';if(S.groups.length>=1){h='<span class="group-label">◆ 分组</span><button class="group-btn'+(!S.currentGroup?' active':'')+'" data-group="">ALL</button>';S.groups.forEach(function(g){h+='<button class="group-btn'+(S.currentGroup===g?' active':'')+'" data-group="'+esc(g)+'">'+esc(g)+'</button>'})}h+='<button class="stab-nav-btn" id="nav-stability-grp" title="节点稳定性">◈ STABILITY</button>';h+='<button class="wmap-nav-btn" id="nav-worldmap-grp" title="全球分布图">◈ MAP</button>';h+='<button class="wmap-nav-btn" id="nav-billing-grp" title="费用总览">◈ BILLING</button>';h+='<button class="wmap-nav-btn" id="nav-nexus-grp" title="驾驶舱">◈ NEXUS</button>';c.innerHTML=h;c.querySelectorAll('.group-btn').forEach(function(b){b.addEventListener('click',function(){var g=this.getAttribute('data-group');S.currentGroup=g||null;g?localStorage.setItem('nodeSelectedGroup',g):localStorage.removeItem('nodeSelectedGroup');rGF();render()})});var sb=document.getElementById('nav-stability-grp');if(sb)sb.addEventListener('click',function(){nav('/stability')});var wmb=document.getElementById('nav-worldmap-grp');if(wmb)wmb.addEventListener('click',function(){nav('/worldmap')});var nxb=document.getElementById('nav-nexus-grp');if(nxb)nxb.addEventListener('click',function(){window.location.href='/nexus.html'});var blb=document.getElementById('nav-billing-grp');if(blb)blb.addEventListener('click',function(){nav('/billing')})}
 // Dashboard
 function gF(){return S.nodes.filter(function(n){if(n.hidden&&!S.loggedIn)return false;if(S.currentGroup&&n.group!==S.currentGroup)return false;if(S.searchTerm){var haystack=(n.name+' '+n.group+' '+n.os+' '+n.region+' '+(n.tag||n.tags||n.label||n.labels||'')).toLowerCase();if(haystack.indexOf(S.searchTerm.toLowerCase())===-1)return false}return true})}
@@ -2198,30 +2198,30 @@ function fetchIPData(){
 }
 
 function renderVA(overlay,box,d){
-  var lv='safe';var tag='SIGNAL ACQUIRED';var sub='\u5df2\u83b7\u53d6\u5916\u90e8\u4fe1\u53f7';var badge='INFO';var stateV='AUTH STATUS:\nVERIFIED';
-  if(d.risk>50){lv='alert';tag='THREAT PROFILE ACTIVE';sub='\u9ad8\u98ce\u9669\u7279\u5f81\u5df2\u6fc0\u6d3b';badge='ALERT';stateV='THREAT STATE:\nACTIVE'}
-  else if(d.risk>20||d.proxy==='yes'){lv='warn';tag=d.proxy==='yes'?'ROUTE ANOMALY':'RELAY PATH FLAGGED';sub=d.proxy==='yes'?'\u94fe\u8def\u8def\u5f84\u5f02\u5e38':'\u4e2d\u7ee7\u8def\u5f84\u5df2\u6807\u8bb0';badge='WARN';stateV='ROUTE STATUS:\nFLAGGED'}
+  var lv='safe';var tag='SIGNAL ACQUIRED';var sub='External signal registered';var subCn='\u5df2\u83b7\u53d6\u5916\u90e8\u4fe1\u53f7';var badge='INFO';var stateV='VERIFIED';var stateCn='\u5df2\u9a8c\u8bc1';
+  if(d.risk>50){lv='alert';tag='THREAT PROFILE ACTIVE';sub='Hostile signature detected';subCn='\u9ad8\u98ce\u9669\u7279\u5f81\u5df2\u6fc0\u6d3b';badge='ALERT';stateV='ACTIVE';stateCn='\u5a01\u80c1\u6d3b\u8dc3'}
+  else if(d.risk>20||d.proxy==='yes'){lv='warn';tag=d.proxy==='yes'?'ROUTE ANOMALY':'RELAY PATH FLAGGED';sub=d.proxy==='yes'?'Anomalous routing detected':'Relay path flagged';subCn=d.proxy==='yes'?'\u94fe\u8def\u8def\u5f84\u5f02\u5e38':'\u4e2d\u7ee7\u8def\u5f84\u5df2\u6807\u8bb0';badge='WARN';stateV='FLAGGED';stateCn='\u5df2\u6807\u8bb0'}
   box.className='va-box lv-'+lv;
   document.getElementById('va-tag').textContent=tag;
-  document.getElementById('va-sub').textContent=sub;
+  document.getElementById('va-sub').innerHTML=sub+'<br><span style="opacity:.55">'+subCn+'</span>';
   document.getElementById('va-badge').textContent=badge;
   document.getElementById('va-ip').textContent=d.ip||'--';
-  document.getElementById('va-state').innerHTML=stateV.replace('\n','<br>');
+  document.getElementById('va-state').innerHTML='<span style="letter-spacing:1.5px">'+stateV+'</span>';
 
   var loc=[d.city,d.country].filter(Boolean).join(', ');
   var fh='';
   fh+='<div class="va-f"><span class="va-f-k">\u533a\u57df</span><span class="va-f-v">'+(loc||'Unknown')+'</span></div>';
   if(d.lat&&d.lon)fh+='<div class="va-f"><span class="va-f-k">\u5750\u6807</span><span class="va-f-v">'+Number(d.lat).toFixed(3)+' / '+Number(d.lon).toFixed(3)+'</span></div>';
   else fh+='<div class="va-f"><span class="va-f-k">\u5750\u6807</span><span class="va-f-v">--</span></div>';
-  fh+='<div class="va-f"><span class="va-f-k">\u8fd0\u8425\u5546</span><span class="va-f-v">'+(d.isp||'Unknown').substring(0,30)+'</span></div>';
+  fh+='<div class="va-f" style="grid-column:1/-1"><span class="va-f-k">\u8fd0\u8425\u5546</span><span class="va-f-v" title="'+(d.isp||'')+'">'+(d.isp||'Unknown')+'</span></div>';
   document.getElementById('va-fields').innerHTML=fh;
 
   var riskTxt=d.risk>50?'TIER III':d.risk>20?'TIER II':'TIER I';
   var riskCol=lv==='alert'?'var(--p-danger)':lv==='warn'?'var(--p-warn)':'var(--p-success)';
   var typeTxt=d.proxy==='yes'?'RELAYED':'DIRECT';
   var typeCol=d.proxy==='yes'?'var(--p-warn)':'var(--p-text-secondary)';
-  var bh='<div class="va-bot-l"><span class="va-f-k">\u8def\u5f84\u72b6\u6001</span><span class="va-f-v">'+stateV.split('\n')[0]+' '+stateV.split('\n')[1]+'</span></div>';
-  bh+='<div class="va-bot-r"><span class="va-f-k">\u98ce\u9669 / \u94fe\u8def\u7c7b\u578b</span><span class="va-f-v" style="color:'+riskCol+'">'+riskTxt+' / <span style="color:'+typeCol+'">'+typeTxt+'</span></span></div>';
+  var bh='<div class="va-bot-l"><span class="va-f-k">\u8def\u5f84\u72b6\u6001</span><span class="va-f-v">'+stateCn+'</span></div>';
+  bh+='<div class="va-bot-r"><span class="va-f-k">RISK / LINK TYPE</span><span class="va-f-v" style="color:'+riskCol+'">'+riskTxt+' / <span style="color:'+typeCol+'">'+typeTxt+'</span></span></div>';
   document.getElementById('va-bot').innerHTML=bh;
 
   overlay.classList.add('va-show');
