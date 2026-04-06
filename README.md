@@ -34,6 +34,13 @@ A Komari Monitor theme inspired by Arknights' PRTS (Pharmaceutical Resources Tra
 
 Upload the theme zip in Komari Monitor admin panel.
 
+## Sibling Themes
+
+| Theme | Style | Repo |
+|-------|-------|------|
+| **PRTS Industrial** (this) | Industrial HUD — Endfield structural beauty | — |
+| **NanoMuse** | Anime HUD — Light sci-fi white porcelain | [komari-nano-muse](https://github.com/saladinxp/komari-nano-muse) |
+
 ## Credits
 
 Engineered by [Miuler](https://github.com/saladinxp) · Powered by [Komari Monitor](https://github.com/komari-monitor/komari)
