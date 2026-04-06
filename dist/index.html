@@ -2198,9 +2198,9 @@ function fetchIPData(){
 }
 
 function renderVA(overlay,box,d){
-  var lv='safe';var tag='NEW CONNECTION';var sub='\u65b0\u8fde\u63a5\u5df2\u5efa\u7acb';var badge='INFO';var stateV='SIGNAL LOCKED';
-  if(d.risk>50){lv='alert';tag='THREAT DETECTED';sub='\u68c0\u6d4b\u5230\u9ad8\u98ce\u9669\u8fde\u63a5';badge='ALERT';stateV='HIGH RISK \u00b7\nMONITORING'}
-  else if(d.risk>20||d.proxy==='yes'){lv='warn';tag=d.proxy==='yes'?'PROXY DETECTED':'ELEVATED RISK';sub=d.proxy==='yes'?'\u68c0\u6d4b\u5230\u4ee3\u7406\u8fde\u63a5':'\u68c0\u6d4b\u5230\u5f02\u5e38\u8def\u7531';badge='WARN';stateV='PROXY LINK \u00b7\nFLAGGED'}
+  var lv='safe';var tag='SIGNAL ACQUIRED';var sub='\u5df2\u83b7\u53d6\u5916\u90e8\u4fe1\u53f7';var badge='INFO';var stateV='AUTH STATUS:\nVERIFIED';
+  if(d.risk>50){lv='alert';tag='THREAT PROFILE ACTIVE';sub='\u9ad8\u98ce\u9669\u7279\u5f81\u5df2\u6fc0\u6d3b';badge='ALERT';stateV='THREAT STATE:\nACTIVE'}
+  else if(d.risk>20||d.proxy==='yes'){lv='warn';tag=d.proxy==='yes'?'ROUTE ANOMALY':'RELAY PATH FLAGGED';sub=d.proxy==='yes'?'\u94fe\u8def\u8def\u5f84\u5f02\u5e38':'\u4e2d\u7ee7\u8def\u5f84\u5df2\u6807\u8bb0';badge='WARN';stateV='ROUTE STATUS:\nFLAGGED'}
   box.className='va-box lv-'+lv;
   document.getElementById('va-tag').textContent=tag;
   document.getElementById('va-sub').textContent=sub;
@@ -2216,12 +2216,12 @@ function renderVA(overlay,box,d){
   fh+='<div class="va-f"><span class="va-f-k">\u8fd0\u8425\u5546</span><span class="va-f-v">'+(d.isp||'Unknown').substring(0,30)+'</span></div>';
   document.getElementById('va-fields').innerHTML=fh;
 
-  var riskTxt=d.risk>50?'HIGH':d.risk>20?'MEDIUM':'LOW';
+  var riskTxt=d.risk>50?'TIER III':d.risk>20?'TIER II':'TIER I';
   var riskCol=lv==='alert'?'var(--p-danger)':lv==='warn'?'var(--p-warn)':'var(--p-success)';
-  var typeTxt=d.proxy==='yes'?'VPN / PROXY':'DIRECT';
+  var typeTxt=d.proxy==='yes'?'RELAYED':'DIRECT';
   var typeCol=d.proxy==='yes'?'var(--p-warn)':'var(--p-text-secondary)';
-  var bh='<div class="va-bot-l"><span class="va-f-k">\u72b6\u6001 / \u7c7b\u578b</span><span class="va-f-v">'+stateV.split('\n')[0]+'</span></div>';
-  bh+='<div class="va-bot-r"><span class="va-f-k">\u98ce\u9669 / \u7c7b\u578b</span><span class="va-f-v" style="color:'+riskCol+'">'+riskTxt+' / <span style="color:'+typeCol+'">'+typeTxt+'</span></span></div>';
+  var bh='<div class="va-bot-l"><span class="va-f-k">\u8def\u5f84\u72b6\u6001</span><span class="va-f-v">'+stateV.split('\n')[0]+' '+stateV.split('\n')[1]+'</span></div>';
+  bh+='<div class="va-bot-r"><span class="va-f-k">\u98ce\u9669 / \u94fe\u8def\u7c7b\u578b</span><span class="va-f-v" style="color:'+riskCol+'">'+riskTxt+' / <span style="color:'+typeCol+'">'+typeTxt+'</span></span></div>';
   document.getElementById('va-bot').innerHTML=bh;
 
   overlay.classList.add('va-show');
