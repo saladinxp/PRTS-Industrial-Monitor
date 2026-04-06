@@ -1392,7 +1392,7 @@ function reWS(){if(S.wsRetries>=20)return;S.wsRetries++;setTimeout(conWS,3000)}
 function isP(p){return document.getElementById('page-'+p).classList.contains('active')}
 function showP(p){document.querySelectorAll('.page').forEach(function(e){e.classList.remove('active')});document.getElementById('page-'+p).classList.add('active');document.getElementById('search-input').style.display=p==='dashboard'?'':'none'}
 function nav(path){history.pushState(null,'',path);hRoute()}
-function hRoute(){var p=location.pathname;if(p==='/billing'){showP('billing');rBilling();return}if(p==='/stability'){showP('stability');loadStabilityData();return}if(p==='/worldmap'){showP('worldmap');initWorldMap();return}if(p.match(/^\/detail\//)){var uuid=p.replace('/detail/','');openDet(uuid)}else{showP('dashboard');S.detailUUID=null}}
+function hRoute(){var p=location.pathname;if(p==='/billing'){showP('billing');if(!S._ratesFetched){fetchRates().then(function(){rBilling()})}else{rBilling()}return}if(p==='/stability'){showP('stability');loadStabilityData();return}if(p==='/worldmap'){showP('worldmap');initWorldMap();return}if(p.match(/^\/detail\//)){var uuid=p.replace('/detail/','');openDet(uuid)}else{showP('dashboard');S.detailUUID=null}}
 // Groups
 function exG(){var seen={};S.nodes.forEach(function(n){if(n.group)seen[n.group]=1});S.groups=Object.keys(seen);rGF()}
 function rGF(){var c=document.getElementById('group-filter');if(!c)return;var h='';if(S.groups.length>=1){h='<span class="group-label">◆ 分组</span><button class="group-btn'+(!S.currentGroup?' active':'')+'" data-group="">ALL</button>';S.groups.forEach(function(g){h+='<button class="group-btn'+(S.currentGroup===g?' active':'')+'" data-group="'+esc(g)+'">'+esc(g)+'</button>'})}h+='<button class="stab-nav-btn" id="nav-stability-grp" title="节点稳定性">◈ STABILITY</button>';h+='<button class="wmap-nav-btn" id="nav-worldmap-grp" title="全球分布图">◈ MAP</button>';h+='<button class="wmap-nav-btn" id="nav-billing-grp" title="费用总览">◈ BILLING</button>';h+='<button class="wmap-nav-btn" id="nav-nexus-grp" title="驾驶舱">◈ NEXUS</button>';c.innerHTML=h;c.querySelectorAll('.group-btn').forEach(function(b){b.addEventListener('click',function(){var g=this.getAttribute('data-group');S.currentGroup=g||null;g?localStorage.setItem('nodeSelectedGroup',g):localStorage.removeItem('nodeSelectedGroup');rGF();render()})});var sb=document.getElementById('nav-stability-grp');if(sb)sb.addEventListener('click',function(){nav('/stability')});var wmb=document.getElementById('nav-worldmap-grp');if(wmb)wmb.addEventListener('click',function(){nav('/worldmap')});var nxb=document.getElementById('nav-nexus-grp');if(nxb)nxb.addEventListener('click',function(){window.location.href='/nexus.html'});var blb=document.getElementById('nav-billing-grp');if(blb)blb.addEventListener('click',function(){nav('/billing')})}
@@ -2318,7 +2318,9 @@ function rBilling(){
 
 function billRow(r){
   var n=r.node;var b=r.billing;
-  var priceStr=b.str||'<span style="color:var(--p-text-dim)">--</span>';
+  var priceStr='<span style="color:var(--p-text-dim)">--</span>';
+  if(b.str==='免费')priceStr='<span class="bill-free">免费</span>';
+  else if(b.monthly>0&&n.price>0){priceStr=fmtConverted(n.price,b.currency);var cDays=parseInt(n.billing_cycle)||30;var cycleL='';if(cDays<=31)cycleL='/月';else if(cDays<=93)cycleL='/季';else if(cDays<=186)cycleL='/半年';else if(cDays<=366)cycleL='/年';else cycleL='/'+Math.round(cDays/365)+'年';priceStr+=cycleL}
   var monthlyStr=b.monthly>0?'<span class="bill-monthly">'+fmtConverted(b.monthly,b.currency)+'</span>':(b.str==='免费'?'<span class="bill-free">免费</span>':'<span style="color:var(--p-text-dim)">--</span>');
   var cycleStr='';
   if(n.billing_cycle){var cd=parseInt(n.billing_cycle);if(cd<=31)cycleStr='月付';else if(cd<=93)cycleStr='季付';else if(cd<=186)cycleStr='半年付';else if(cd<=366)cycleStr='年付';else cycleStr=Math.round(cd/365)+'年付'}
@@ -2364,7 +2366,7 @@ function rBillFlat(nodeRows,totalEntries){
   var h='<div style="background:var(--p-surface);border:1px solid var(--p-border-strong);overflow-x:auto"><table class="bill-table"><thead><tr><th>NODE</th><th>STATUS</th><th>GROUP</th><th>PRICE</th><th>CYCLE</th><th>MONTHLY</th><th>EXPIRES</th><th>REMAINING</th></tr></thead><tbody>';
   nodeRows.forEach(function(r){
     var n=r.node;var b=r.billing;
-    var priceStr=b.str||'--';
+    var priceStr='--';if(b.str==='免费')priceStr='<span class="bill-free">免费</span>';else if(b.monthly>0&&n.price>0){priceStr=fmtConverted(n.price,b.currency);var cDays2=parseInt(n.billing_cycle)||30;if(cDays2<=31)priceStr+='/月';else if(cDays2<=93)priceStr+='/季';else if(cDays2<=186)priceStr+='/半年';else if(cDays2<=366)priceStr+='/年';else priceStr+='/'+Math.round(cDays2/365)+'年'}
     var monthlyStr=b.monthly>0?'<span class="bill-monthly">'+fmtConverted(b.monthly,b.currency)+'</span>':(b.str==='免费'?'<span class="bill-free">免费</span>':'--');
     var cycleStr='';if(n.billing_cycle){var cd=parseInt(n.billing_cycle);if(cd<=31)cycleStr='月付';else if(cd<=93)cycleStr='季付';else if(cd<=186)cycleStr='半年付';else if(cd<=366)cycleStr='年付';else cycleStr=Math.round(cd/365)+'年付'}
     var expStr='--';if(n.expired_at&&!n.expired_at.startsWith('0001'))expStr=n.expired_at.split('T')[0];
