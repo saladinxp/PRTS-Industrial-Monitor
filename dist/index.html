@@ -618,6 +618,41 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   .stab-overview{grid-template-columns:1fr}
 }
 
+/* ===== BILLING PAGE ===== */
+#page-billing{padding:24px 32px;max-width:1440px;width:100%;margin:0 auto}
+.bill-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.bill-title{font-family:var(--p-display);font-size:16px;font-weight:800;letter-spacing:3px;color:var(--p-text)}
+.bill-sub{font-family:var(--p-mono);font-size:10px;letter-spacing:2px;color:var(--p-text-dim)}
+.bill-back{display:inline-flex;align-items:center;gap:6px;font-family:var(--p-mono);font-size:11px;letter-spacing:2px;color:var(--p-text-secondary);cursor:pointer;padding:6px 16px;border:1px solid var(--p-border);background:transparent;transition:all .15s;margin-bottom:16px}
+.bill-back:hover{color:var(--p-brand-on);border-color:var(--p-brand);background:var(--p-brand)}
+.bill-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:24px}
+.bill-sum-card{background:var(--p-surface);border:1px solid var(--p-border-strong);padding:16px 20px;text-align:center}
+.bill-sum-val{font-family:var(--p-sans);font-weight:800;font-size:28px;color:var(--p-text);line-height:1.1}
+.bill-sum-lbl{font-family:var(--p-mono);font-size:8px;letter-spacing:2px;color:var(--p-text-dim);font-weight:600;margin-top:4px}
+.bill-view-toggle{display:flex;gap:0;margin-bottom:16px}
+.bill-view-btn{font-family:var(--p-mono);font-size:9px;letter-spacing:1.5px;padding:6px 14px;cursor:pointer;border:1px solid var(--p-border-strong);background:var(--p-surface);color:var(--p-text-dim);font-weight:500;transition:all .2s}
+.bill-view-btn.a{background:var(--p-accent);color:#fff;border-color:var(--p-accent);font-weight:700}
+.bill-table{width:100%;border-collapse:collapse;font-family:var(--p-sans);font-size:12px}
+.bill-table th{font-family:var(--p-mono);font-size:8px;letter-spacing:2px;color:var(--p-text-dim);font-weight:600;padding:8px 12px;text-align:left;background:var(--p-bg-warm);border-bottom:1px solid var(--p-border-strong)}
+.bill-table td{padding:8px 12px;border-bottom:1px solid var(--p-border);color:var(--p-text);vertical-align:middle}
+.bill-table tr:hover td{background:var(--p-accent-subtle)}
+.bill-node-name{font-weight:600;cursor:pointer}.bill-node-name:hover{color:var(--p-accent)}
+.bill-badge{display:inline-block;padding:1px 6px;font-family:var(--p-mono);font-size:8px;letter-spacing:1px;font-weight:600;border:1px solid}
+.bill-badge.on{color:var(--p-success);border-color:rgba(var(--p-success-rgb),.2)}.bill-badge.off{color:var(--p-danger);border-color:rgba(var(--p-danger-rgb),.2)}
+.bill-monthly{font-family:var(--p-mono);font-weight:700;color:var(--p-accent)}
+.bill-free{font-family:var(--p-mono);font-weight:500;color:var(--p-text-dim)}
+.bill-total-row td{font-weight:700;border-top:2px solid rgba(var(--p-accent-rgb),.25);background:var(--p-accent-subtle)}
+.bill-group{margin-bottom:20px}
+.bill-group-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding:0 2px}
+.bill-group-name{font-family:var(--p-mono);font-size:11px;letter-spacing:2.5px;color:var(--p-text);font-weight:700}
+.bill-group-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(var(--p-accent-rgb),.25),transparent)}
+.bill-group-stats{font-family:var(--p-mono);font-size:9px;letter-spacing:1px;color:var(--p-text-dim)}
+.bill-group-cost{font-family:var(--p-mono);font-size:11px;font-weight:700;color:var(--p-accent);margin-left:auto}
+.bill-cur-bar{display:flex;gap:4px;margin-left:auto}
+.bill-cur-btn{font-family:var(--p-mono);font-size:9px;letter-spacing:1px;padding:4px 10px;border:1px solid var(--p-border-strong);background:transparent;color:var(--p-text-dim);cursor:pointer;transition:.2s}
+.bill-cur-btn.a{background:var(--p-accent);color:#fff;border-color:var(--p-accent)}
+@media(max-width:768px){#page-billing{padding:14px 12px}.bill-summary{grid-template-columns:1fr 1fr}}
+
 /* ===== STABILITY / UPTIME MONITOR PAGE ===== */
 #page-stability{padding:24px 32px;max-width:1440px;width:100%;margin:0 auto}
 .stab-header{display:flex;align-items:center;gap:10px;margin-bottom:20px}
@@ -1023,6 +1058,30 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 </div>
   </div>
 
+    <!-- BILLING PAGE -->
+    <div class="main-content page" id="page-billing">
+      <button class="bill-back" id="bill-back">◂ BACK</button>
+      <div class="bill-header">
+        <span style="font-size:12px;color:var(--p-accent)">◈</span>
+        <span class="bill-title">BILLING</span>
+        <span class="bill-sub">费用总览 // COST OVERVIEW</span>
+        <div class="bill-cur-bar">
+          <button class="bill-cur-btn" data-cur="original">原始</button>
+          <button class="bill-cur-btn a" data-cur="USD">$ USD</button>
+          <button class="bill-cur-btn" data-cur="CNY">¥ CNY</button>
+          <button class="bill-cur-btn" data-cur="EUR">€ EUR</button>
+          <button class="bill-cur-btn" data-cur="JPY">¥ JPY</button>
+        </div>
+      </div>
+      <div class="bill-summary" id="billSummary"></div>
+      <div class="bill-view-toggle">
+        <button class="bill-view-btn a" data-view="group">BY GROUP</button>
+        <button class="bill-view-btn" data-view="flat">ALL NODES</button>
+      </div>
+      <div id="billContent"></div>
+    </div>
+
+
 <script>
 
 (function(){
@@ -1101,7 +1160,7 @@ function varDecoHTML(v,on){
 }
 // Offline extra DOM
 function offlineDecoHTML(atk){return'<div class="offline-redline"></div><div class="offline-hatch"></div><div class="offline-signal">\u25C7 NO SIGNAL</div><div class="offline-overload-tag">'+(atk?'\u26A0 UNDER ATTACK':'\u26A0 OVERLOAD')+'</div>'}
-function fBilling(n){var s='';if(n.price&&n.price>0){s+=''+(n.currency||'$')+n.price;if(n.billing_cycle){var c=parseInt(n.billing_cycle);if(c>0){if(c<=31)s+='/月';else if(c<=93)s+='/季';else if(c<=186)s+='/半年';else if(c<=366)s+='/年';else if(c<=1096)s+='/三年';else s+='/'+Math.round(c/365)+'年'}}else if(n.price===-1){s='免费'}}return s}
+function fBilling(n){if(!n.price||n.price===0)return{str:'',monthly:0,currency:''};if(n.price===-1)return{str:'免费',monthly:0,currency:''};var cur=n.currency||'$';var p=n.price;var cDays=parseInt(n.billing_cycle)||30;var cycleStr='';if(cDays<=31)cycleStr='/月';else if(cDays<=93)cycleStr='/季';else if(cDays<=186)cycleStr='/半年';else if(cDays<=366)cycleStr='/年';else if(cDays<=1096)cycleStr='/三年';else cycleStr='/'+Math.round(cDays/365)+'年';var monthly=p/(cDays/30);return{str:cur+p+cycleStr,monthly:monthly,currency:cur}}
 // Parse tag labels: "2Gbps<green>;Premium" → [{text:'2Gbps',color:'green'},{text:'Premium',color:'default'}]
 function parseTags(n){var tags=[];var raw=n.tag||n.tags||n.label||n.labels||'';if(!raw)return tags;var parts=raw.split(';');parts.forEach(function(p){p=p.trim();if(!p)return;var m=p.match(/^(.+?)<(\w+)>$/);if(m){tags.push({text:m[1],color:m[2]})}else{tags.push({text:p,color:'default'})}});return tags}
 function fTagsHTML(n){var tags=parseTags(n);if(!tags.length)return'';var h='';tags.forEach(function(t){var cls='tag-'+t.color;if(!['green','blue','red','orange','yellow','purple','pink','cyan','amber'].includes(t.color))cls='tag-default';h+='<span class="node-tag '+cls+'">'+esc(t.text)+'</span>'});return h}
@@ -1331,10 +1390,10 @@ function reWS(){if(S.wsRetries>=20)return;S.wsRetries++;setTimeout(conWS,3000)}
 function isP(p){return document.getElementById('page-'+p).classList.contains('active')}
 function showP(p){document.querySelectorAll('.page').forEach(function(e){e.classList.remove('active')});document.getElementById('page-'+p).classList.add('active');document.getElementById('search-input').style.display=p==='dashboard'?'':'none'}
 function nav(path){history.pushState(null,'',path);hRoute()}
-function hRoute(){var p=location.pathname;if(p==='/stability'){showP('stability');loadStabilityData();return}if(p==='/worldmap'){showP('worldmap');initWorldMap();return}if(p.match(/^\/detail\//)){var uuid=p.replace('/detail/','');openDet(uuid)}else{showP('dashboard');S.detailUUID=null}}
+function hRoute(){var p=location.pathname;if(p==='/billing'){showP('billing');rBilling();return}if(p==='/stability'){showP('stability');loadStabilityData();return}if(p==='/worldmap'){showP('worldmap');initWorldMap();return}if(p.match(/^\/detail\//)){var uuid=p.replace('/detail/','');openDet(uuid)}else{showP('dashboard');S.detailUUID=null}}
 // Groups
 function exG(){var seen={};S.nodes.forEach(function(n){if(n.group)seen[n.group]=1});S.groups=Object.keys(seen);rGF()}
-function rGF(){var c=document.getElementById('group-filter');if(!c)return;var h='';if(S.groups.length>=1){h='<span class="group-label">◆ 分组</span><button class="group-btn'+(!S.currentGroup?' active':'')+'" data-group="">ALL</button>';S.groups.forEach(function(g){h+='<button class="group-btn'+(S.currentGroup===g?' active':'')+'" data-group="'+esc(g)+'">'+esc(g)+'</button>'})}h+='<button class="stab-nav-btn" id="nav-stability-grp" title="节点稳定性">◈ STABILITY</button>';h+='<button class="wmap-nav-btn" id="nav-worldmap-grp" title="全球分布图">◈ MAP</button>';h+='<button class=\"wmap-nav-btn\" id=\"nav-nexus-grp\" title=\"驾驶舱\">◈ NEXUS</button>';c.innerHTML=h;c.querySelectorAll('.group-btn').forEach(function(b){b.addEventListener('click',function(){var g=this.getAttribute('data-group');S.currentGroup=g||null;g?localStorage.setItem('nodeSelectedGroup',g):localStorage.removeItem('nodeSelectedGroup');rGF();render()})});var sb=document.getElementById('nav-stability-grp');if(sb)sb.addEventListener('click',function(){nav('/stability')});var wmb=document.getElementById('nav-worldmap-grp');if(wmb)wmb.addEventListener('click',function(){nav('/worldmap')});var nxb=document.getElementById('nav-nexus-grp');if(nxb)nxb.addEventListener('click',function(){window.location.href='/nexus.html'})}
+function rGF(){var c=document.getElementById('group-filter');if(!c)return;var h='';if(S.groups.length>=1){h='<span class="group-label">◆ 分组</span><button class="group-btn'+(!S.currentGroup?' active':'')+'" data-group="">ALL</button>';S.groups.forEach(function(g){h+='<button class="group-btn'+(S.currentGroup===g?' active':'')+'" data-group="'+esc(g)+'">'+esc(g)+'</button>'})}h+='<button class="stab-nav-btn" id="nav-stability-grp" title="节点稳定性">◈ STABILITY</button>';h+='<button class="wmap-nav-btn" id="nav-worldmap-grp" title="全球分布图">◈ MAP</button>';h+='<button class=\"wmap-nav-btn\" id=\"nav-nexus-grp\" title=\"驾驶舱\">◈ NEXUS</button>';c.innerHTML=h;c.querySelectorAll('.group-btn').forEach(function(b){b.addEventListener('click',function(){var g=this.getAttribute('data-group');S.currentGroup=g||null;g?localStorage.setItem('nodeSelectedGroup',g):localStorage.removeItem('nodeSelectedGroup');rGF();render()})});var sb=document.getElementById('nav-stability-grp');if(sb)sb.addEventListener('click',function(){nav('/stability')});var wmb=document.getElementById('nav-worldmap-grp');if(wmb)wmb.addEventListener('click',function(){nav('/worldmap')});var nxb=document.getElementById('nav-nexus-grp');if(nxb)nxb.addEventListener('click',function(){window.location.href='/nexus.html'});var blb=document.getElementById('nav-billing-grp');if(blb)blb.addEventListener('click',function(){nav('/billing')})}
 // Dashboard
 function gF(){return S.nodes.filter(function(n){if(n.hidden&&!S.loggedIn)return false;if(S.currentGroup&&n.group!==S.currentGroup)return false;if(S.searchTerm){var haystack=(n.name+' '+n.group+' '+n.os+' '+n.region+' '+(n.tag||n.tags||n.label||n.labels||'')).toLowerCase();if(haystack.indexOf(S.searchTerm.toLowerCase())===-1)return false}return true})}
 function render(){var f=gF();rSum();rCards(f);uCtr();S._lastF=f.map(function(n){return n.uuid})}
@@ -1366,7 +1425,7 @@ layer.style.clipPath='polygon(0 0,100% 0,100% 0,0 0)';
 });
 });
 }
-function rCards(fl){var g=document.getElementById('cards-grid');if(!g)return;if(!fl.length){g.innerHTML='<div class="empty-state">NO NODES DETECTED</div>';return}var h='';fl.forEach(function(n,i){var on=S.onlineSet.has(n.uuid),l=S.liveData[n.uuid];var vr=varHash(n.uuid);var cp=0,rp=0,dp=0,sp=0,nu=0,nd=0,ut=0,pr=0,tc=0,uc=0,ru=0,rt=0,du=0,dt=0;var isOffOvl=false;var isAttacked=false;if(on&&l){cp=l.cpu?l.cpu.usage:0;rp=pc(l.ram?l.ram.used:0,l.ram?l.ram.total:1);dp=pc(l.disk?l.disk.used:0,l.disk?l.disk.total:1);sp=pc(l.swap?l.swap.used:0,l.swap?l.swap.total:1);nu=l.network?l.network.up:0;nd=l.network?l.network.down:0;ut=l.uptime||0;pr=l.process||0;tc=l.connections?l.connections.tcp:0;uc=l.connections?l.connections.udp:0;ru=l.ram?l.ram.used:0;rt=l.ram?l.ram.total:0;du=l.disk?l.disk.used:0;dt=l.disk?l.disk.total:0}else if(!on){isOffOvl=true;var _h=0;for(var _ci=0;_ci<(n.uuid||'x').length;_ci++){_h=((_h<<5)-_h)+(n.uuid||'x').charCodeAt(_ci);_h|=0}var _s=Math.abs(_h);var isAttacked=((_s>>7)&1)===0;if(isAttacked){cp=55+((_s>>2)%41);rp=35+((_s>>5)%38);dp=20+((_s>>8)%36);tc=5000+((_s>>1)%25000);uc=1000+((_s>>3)%7000);pr=2000+((_s>>6)%6000);nu=50000000+((_s>>2)%950000000);nd=80000000+((_s>>4)%920000000)}else{cp=88+((_s>>1)%18);rp=85+((_s>>4)%18);dp=78+((_s>>7)%22);tc=200+((_s>>2)%500);uc=10+((_s>>5)%60);pr=800+((_s>>3)%500);nu=(_s>>1)%5000;nd=(_s>>4)%3000}var _fmem=[137438953472,274877906944,549755813888,1099511627776];var _fdsk=[2199023255552,4398046511104,8796093022208,17592186044416];rt=n.mem_total||_fmem[_s%_fmem.length];dt=n.disk_total||_fdsk[(_s>>3)%_fdsk.length];ru=rt*Math.min(rp,100)/100;du=dt*Math.min(dp,100)/100;var _fakeOS=['Quantum OS 12.0 (nova)','NeuroLinux 25 (synapse)','ArcOS 7.7 (phantom)','HyperDebian 15 (pulse)','CrystalBSD 4.0 (prism)','Void Engine 3.2 (abyss)'];var _fakeCPU=['AMD EPYC 9B84 256-Core','Intel Xeon w9-5690X 128-Core','Ampere Altra Q256-80','NVIDIA Grace 144-Core ARM','Qualcomm Oryon X1 96-Core','RISC-V SG2380 128-Core'];var _fakeCores=[256,128,192,144,96,128];var _fi=_s%_fakeOS.length;if(!n.os||n.os==='Unknown')n._fakeOS=_fakeOS[_fi];if(!n.cpu_name||n.cpu_name==='Unknown')n._fakeCPU=_fakeCPU[_fi];if(!n.cpu_cores)n._fakeCores=_fakeCores[_fi]}var tU=on&&l&&l.network?l.network.totalUp:0,tD=on&&l&&l.network?l.network.totalDown:0;h+=(on?'':'<div class="card-offline-wrap '+vr+'">')+'<div class="server-card entering '+(on?'card-online':'card-offline')+' '+vr+'" data-uuid="'+n.uuid+'" style="animation-delay:'+(i*.05)+'s">'+varDecoHTML(vr,on)+(on?'<canvas class="current-canvas"></canvas>':'')+(on?illustHTML(n.uuid):'')+(on?'<div class="card-current-flow"></div>':'')+'<div class="holo-scan"></div><div class="card-scan-line" style="animation-delay:'+(i*.7)+'s"></div>'+'<div class="card-accent-line"></div>'  +'<span class="var-tag">'+vr.replace('variant-','VAR-').toUpperCase()+'</span>'+(on?'':offlineDecoHTML(isAttacked))+'<span class="card-idx">'+(i<9?'0':'')+(i+1)+'</span><span class="card-crosshair"></span><span class="card-coord card-coord-tr">SIG:'+(on?'OK':'--')+'<br>PID:'+((n.uuid||'').substring(0,4).toUpperCase())+'</span><span class="card-coord card-coord-br">[N:'+(i<9?'0':'')+(i+1)+'] '+(n.region||'--').toUpperCase()+'</span><div class="card-header"><div class="card-name">'+(n.region?'<span class="card-region">'+esc(n.region)+'</span>':'')+' '+esc(n.name)+'</div><div style="display:flex;align-items:center;gap:6px">'+(on?'<span class="card-ping-btn" data-ping-uuid="'+n.uuid+'" title="查看延迟">◎</span>':'')+'<span class="card-badge '+(on?'badge-online':'badge-offline')+'">'+(on?'ONLINE':'OFFLINE')+'</span></div></div>';var metaParts=fIPTags(n);var bill=fBilling(n);var exp=fExpire(n);var tagsHTML=fTagsHTML(n);var metaContent=(metaParts||'')+(tagsHTML||'')+(bill?'<span class="billing-tag">'+bill+'</span>':'')+(exp?exp:'');if(!metaContent)metaContent='<span style="display:inline-block;height:14px">&nbsp;</span>';h+='<div class="card-meta">'+metaContent+'</div>';h+='<div class="card-separator"></div><div class="card-body"><div class="card-info-row"><span class="label">SYS</span><span class="value">'+esc(n._fakeOS||n.os||'Unknown')+'</span></div><div class="card-info-row"><span class="label">CPU</span><span class="value">'+esc(n._fakeCPU||n.cpu_name||'Unknown')+' × '+(n._fakeCores||n.cpu_cores||'?')+'</span></div><div class="card-meters">'+mH('CPU',cp,isOffOvl)+mH('RAM',rp,isOffOvl)+mH('DISK',dp,isOffOvl)+'</div><div class="card-info-row" style="margin-top:4px"><span class="label">TOTAL</span><span class="value">↑ '+(isOffOvl?fB(nu*3600):fB(tU))+' ↓ '+(isOffOvl?fB(nd*3600):fB(tD))+'</span></div>'+'<div class="card-network"><div class="net-item"><span class="net-up">▲</span> '+fS(nu)+'</div><div class="net-item"><span class="net-down">▼</span> '+fS(nd)+'</div><div class="net-item">TCP '+tc+' / UDP '+uc+'</div></div><div class="card-footer-row"><span>UPTIME: '+(ut>0?fUs(ut):(isOffOvl?'\u2593\u2593\u2593':'-'))+'</span><span>PROC: '+pr+'</span></div></div></div>'+(on?'':'<canvas class="current-canvas"></canvas><div class="color-layer"><div class="color-clone"></div></div></div>')});g.innerHTML=h;g.querySelectorAll('.server-card').forEach(function(c){c.addEventListener('click',function(e){if(e.target.closest('.card-ping-btn'))return;nav('/detail/'+this.getAttribute('data-uuid'))})});
+function rCards(fl){var g=document.getElementById('cards-grid');if(!g)return;if(!fl.length){g.innerHTML='<div class="empty-state">NO NODES DETECTED</div>';return}var h='';fl.forEach(function(n,i){var on=S.onlineSet.has(n.uuid),l=S.liveData[n.uuid];var vr=varHash(n.uuid);var cp=0,rp=0,dp=0,sp=0,nu=0,nd=0,ut=0,pr=0,tc=0,uc=0,ru=0,rt=0,du=0,dt=0;var isOffOvl=false;var isAttacked=false;if(on&&l){cp=l.cpu?l.cpu.usage:0;rp=pc(l.ram?l.ram.used:0,l.ram?l.ram.total:1);dp=pc(l.disk?l.disk.used:0,l.disk?l.disk.total:1);sp=pc(l.swap?l.swap.used:0,l.swap?l.swap.total:1);nu=l.network?l.network.up:0;nd=l.network?l.network.down:0;ut=l.uptime||0;pr=l.process||0;tc=l.connections?l.connections.tcp:0;uc=l.connections?l.connections.udp:0;ru=l.ram?l.ram.used:0;rt=l.ram?l.ram.total:0;du=l.disk?l.disk.used:0;dt=l.disk?l.disk.total:0}else if(!on){isOffOvl=true;var _h=0;for(var _ci=0;_ci<(n.uuid||'x').length;_ci++){_h=((_h<<5)-_h)+(n.uuid||'x').charCodeAt(_ci);_h|=0}var _s=Math.abs(_h);var isAttacked=((_s>>7)&1)===0;if(isAttacked){cp=55+((_s>>2)%41);rp=35+((_s>>5)%38);dp=20+((_s>>8)%36);tc=5000+((_s>>1)%25000);uc=1000+((_s>>3)%7000);pr=2000+((_s>>6)%6000);nu=50000000+((_s>>2)%950000000);nd=80000000+((_s>>4)%920000000)}else{cp=88+((_s>>1)%18);rp=85+((_s>>4)%18);dp=78+((_s>>7)%22);tc=200+((_s>>2)%500);uc=10+((_s>>5)%60);pr=800+((_s>>3)%500);nu=(_s>>1)%5000;nd=(_s>>4)%3000}var _fmem=[137438953472,274877906944,549755813888,1099511627776];var _fdsk=[2199023255552,4398046511104,8796093022208,17592186044416];rt=n.mem_total||_fmem[_s%_fmem.length];dt=n.disk_total||_fdsk[(_s>>3)%_fdsk.length];ru=rt*Math.min(rp,100)/100;du=dt*Math.min(dp,100)/100;var _fakeOS=['Quantum OS 12.0 (nova)','NeuroLinux 25 (synapse)','ArcOS 7.7 (phantom)','HyperDebian 15 (pulse)','CrystalBSD 4.0 (prism)','Void Engine 3.2 (abyss)'];var _fakeCPU=['AMD EPYC 9B84 256-Core','Intel Xeon w9-5690X 128-Core','Ampere Altra Q256-80','NVIDIA Grace 144-Core ARM','Qualcomm Oryon X1 96-Core','RISC-V SG2380 128-Core'];var _fakeCores=[256,128,192,144,96,128];var _fi=_s%_fakeOS.length;if(!n.os||n.os==='Unknown')n._fakeOS=_fakeOS[_fi];if(!n.cpu_name||n.cpu_name==='Unknown')n._fakeCPU=_fakeCPU[_fi];if(!n.cpu_cores)n._fakeCores=_fakeCores[_fi]}var tU=on&&l&&l.network?l.network.totalUp:0,tD=on&&l&&l.network?l.network.totalDown:0;h+=(on?'':'<div class="card-offline-wrap '+vr+'">')+'<div class="server-card entering '+(on?'card-online':'card-offline')+' '+vr+'" data-uuid="'+n.uuid+'" style="animation-delay:'+(i*.05)+'s">'+varDecoHTML(vr,on)+(on?'<canvas class="current-canvas"></canvas>':'')+(on?illustHTML(n.uuid):'')+(on?'<div class="card-current-flow"></div>':'')+'<div class="holo-scan"></div><div class="card-scan-line" style="animation-delay:'+(i*.7)+'s"></div>'+'<div class="card-accent-line"></div>'  +'<span class="var-tag">'+vr.replace('variant-','VAR-').toUpperCase()+'</span>'+(on?'':offlineDecoHTML(isAttacked))+'<span class="card-idx">'+(i<9?'0':'')+(i+1)+'</span><span class="card-crosshair"></span><span class="card-coord card-coord-tr">SIG:'+(on?'OK':'--')+'<br>PID:'+((n.uuid||'').substring(0,4).toUpperCase())+'</span><span class="card-coord card-coord-br">[N:'+(i<9?'0':'')+(i+1)+'] '+(n.region||'--').toUpperCase()+'</span><div class="card-header"><div class="card-name">'+(n.region?'<span class="card-region">'+esc(n.region)+'</span>':'')+' '+esc(n.name)+'</div><div style="display:flex;align-items:center;gap:6px">'+(on?'<span class="card-ping-btn" data-ping-uuid="'+n.uuid+'" title="查看延迟">◎</span>':'')+'<span class="card-badge '+(on?'badge-online':'badge-offline')+'">'+(on?'ONLINE':'OFFLINE')+'</span></div></div>';var metaParts=fIPTags(n);var bill=fBilling(n);var exp=fExpire(n);var tagsHTML=fTagsHTML(n);var metaContent=(metaParts||'')+(tagsHTML||'')+(bill.str?'<span class="billing-tag">'+bill.str+'</span>':'')+(exp?exp:'');if(!metaContent)metaContent='<span style="display:inline-block;height:14px">&nbsp;</span>';h+='<div class="card-meta">'+metaContent+'</div>';h+='<div class="card-separator"></div><div class="card-body"><div class="card-info-row"><span class="label">SYS</span><span class="value">'+esc(n._fakeOS||n.os||'Unknown')+'</span></div><div class="card-info-row"><span class="label">CPU</span><span class="value">'+esc(n._fakeCPU||n.cpu_name||'Unknown')+' × '+(n._fakeCores||n.cpu_cores||'?')+'</span></div><div class="card-meters">'+mH('CPU',cp,isOffOvl)+mH('RAM',rp,isOffOvl)+mH('DISK',dp,isOffOvl)+'</div><div class="card-info-row" style="margin-top:4px"><span class="label">TOTAL</span><span class="value">↑ '+(isOffOvl?fB(nu*3600):fB(tU))+' ↓ '+(isOffOvl?fB(nd*3600):fB(tD))+'</span></div>'+'<div class="card-network"><div class="net-item"><span class="net-up">▲</span> '+fS(nu)+'</div><div class="net-item"><span class="net-down">▼</span> '+fS(nd)+'</div><div class="net-item">TCP '+tc+' / UDP '+uc+'</div></div><div class="card-footer-row"><span>UPTIME: '+(ut>0?fUs(ut):(isOffOvl?'\u2593\u2593\u2593':'-'))+'</span><span>PROC: '+pr+'</span></div></div></div>'+(on?'':'<canvas class="current-canvas"></canvas><div class="color-layer"><div class="color-clone"></div></div></div>')});g.innerHTML=h;g.querySelectorAll('.server-card').forEach(function(c){c.addEventListener('click',function(e){if(e.target.closest('.card-ping-btn'))return;nav('/detail/'+this.getAttribute('data-uuid'))})});
 // Bind ping buttons on cards
 g.querySelectorAll('.card-ping-btn').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();e.preventDefault();var uuid=this.getAttribute('data-ping-uuid');if(uuid)openNodeLatency(uuid)})});
 // Illustration mouse-follow reveal
@@ -1504,7 +1563,7 @@ if(r&&r.ok){ab.textContent='⚙';ab.title='设置';ab.addEventListener('click',f
 else{ab.textContent='⎆';ab.title='登录';ab.addEventListener('click',function(){window.location.href='/admin'})}
 }).catch(function(){ab.textContent='⎆';ab.title='登录';ab.addEventListener('click',function(){window.location.href='/admin'})})
 })();
-var si=document.getElementById('search-input'),st=null;si.addEventListener('input',function(){clearTimeout(st);st=setTimeout(function(){S.searchTerm=si.value.trim();render()},200)});document.getElementById('nav-home').addEventListener('click',function(){nav('/')});document.getElementById('detail-back').addEventListener('click',function(){nav('/')});var _cpBtn=document.getElementById('copy-info-btn');if(_cpBtn)_cpBtn.addEventListener('click',copyNodeInfo);var _nxBtn=document.getElementById('nexus-jump-btn');if(_nxBtn)_nxBtn.addEventListener('click',function(){if(S.detailUUID)window.location.href='/nexus.html#'+S.detailUUID});document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(b){b.addEventListener('click',function(){S.detailTab=this.getAttribute('data-tab');document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');switchTimeTabs(S.detailTab);if(S.detailTab==='ping'){S.detailPingHours=1}else{S.detailHours=0}ldDetData()})});addEventListener('popstate',hRoute);var sg=localStorage.getItem('nodeSelectedGroup');if(sg)S.currentGroup=sg}
+var si=document.getElementById('search-input'),st=null;si.addEventListener('input',function(){clearTimeout(st);st=setTimeout(function(){S.searchTerm=si.value.trim();render()},200)});document.getElementById('nav-home').addEventListener('click',function(){nav('/')});document.getElementById('detail-back').addEventListener('click',function(){nav('/')});document.getElementById('bill-back').addEventListener('click',function(){nav('/')});document.querySelectorAll('.bill-cur-btn').forEach(function(b){b.addEventListener('click',function(){setCurrency(this.getAttribute('data-cur'))})});document.querySelectorAll('.bill-view-btn').forEach(function(b){b.addEventListener('click',function(){setBillView(this.getAttribute('data-view'))})});var _cpBtn=document.getElementById('copy-info-btn');if(_cpBtn)_cpBtn.addEventListener('click',copyNodeInfo);var _nxBtn=document.getElementById('nexus-jump-btn');if(_nxBtn)_nxBtn.addEventListener('click',function(){if(S.detailUUID)window.location.href='/nexus.html#'+S.detailUUID});document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(b){b.addEventListener('click',function(){S.detailTab=this.getAttribute('data-tab');document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');switchTimeTabs(S.detailTab);if(S.detailTab==='ping'){S.detailPingHours=1}else{S.detailHours=0}ldDetData()})});addEventListener('popstate',hRoute);var sg=localStorage.getItem('nodeSelectedGroup');if(sg)S.currentGroup=sg}
 // ===== [v2.0.0] Settings panel logic =====
 var TVS_KEY='techvision_fx';
 function tvsLoad(){try{return JSON.parse(localStorage.getItem(TVS_KEY))||{}}catch(e){return{}}}
@@ -2145,6 +2204,175 @@ function showAlert(overlay,body,barFill,closeBtn,lines){
   // ESC key
   var escH=function(e){if(e.key==='Escape')closeAlert();document.removeEventListener('keydown',escH)};
   document.addEventListener('keydown',escH);
+}
+
+
+// === BILLING PAGE ===
+S._billView='group';
+S._displayCurrency='USD';
+S._rates=null;
+S._ratesFetched=false;
+S._currencySymbols={USD:'$',CNY:'¥',EUR:'€',JPY:'¥',GBP:'£'};
+
+function fetchRates(){
+  if(S._ratesFetched)return Promise.resolve();
+  var fallback={USD:1,CNY:7.25,EUR:0.92,JPY:150.5,GBP:0.79,HKD:7.82,TWD:32.5,SGD:1.34,KRW:1380};
+  var ctrl=new AbortController();
+  var tid=setTimeout(function(){ctrl.abort()},5000);
+  return fetch('https://open.er-api.com/v6/latest/USD',{signal:ctrl.signal}).then(function(r){return r.json()}).then(function(j){
+    clearTimeout(tid);
+    if(j.result==='success'&&j.rates){S._rates=j.rates;S._ratesFetched=true;return}
+    S._rates=fallback;S._ratesFetched=true;
+  }).catch(function(){clearTimeout(tid);S._rates=fallback;S._ratesFetched=true});
+}
+
+function convertCurrency(amount,fromSymbol,toCur){
+  if(!S._rates||toCur==='original')return null;
+  var sm={'$':'USD','¥':'CNY','€':'EUR','£':'GBP'};
+  var fromCode=sm[fromSymbol];
+  if(fromSymbol==='¥')fromCode=amount>100?'JPY':'CNY';
+  if(!fromCode)fromCode='USD';
+  if(fromCode===toCur)return{amount:amount,symbol:S._currencySymbols[toCur]||toCur};
+  var fromRate=S._rates[fromCode]||1;var toRate=S._rates[toCur]||1;
+  return{amount:amount/fromRate*toRate,symbol:S._currencySymbols[toCur]||toCur};
+}
+
+function fmtConverted(amount,fromSymbol){
+  if(S._displayCurrency==='original')return fromSymbol+amount.toFixed(2);
+  var c=convertCurrency(amount,fromSymbol,S._displayCurrency);
+  if(!c)return fromSymbol+amount.toFixed(2);
+  return c.symbol+c.amount.toFixed(2);
+}
+
+window.setCurrency=function(cur){
+  S._displayCurrency=cur;
+  document.querySelectorAll('.bill-cur-btn').forEach(function(b){b.classList.toggle('a',b.getAttribute('data-cur')===cur)});
+  if(cur!=='original'&&!S._ratesFetched){
+    var sumEl=document.getElementById('billSummary');
+    if(sumEl)sumEl.innerHTML='<div class="bill-sum-card" style="grid-column:1/-1;text-align:center"><div class="bill-sum-val" style="color:var(--p-text-dim);font-size:14px">获取汇率中...</div></div>';
+    fetchRates().then(function(){rBilling()});
+  }else{rBilling()}
+};
+
+window.setBillView=function(v){
+  S._billView=v;
+  document.querySelectorAll('.bill-view-btn').forEach(function(b){b.classList.toggle('a',b.getAttribute('data-view')===v)});
+  rBilling();
+};
+
+function rBilling(){
+  var sumEl=document.getElementById('billSummary');var contentEl=document.getElementById('billContent');
+  if(!sumEl||!contentEl)return;
+  var totals={};var nodeRows=[];var freeCount=0;var groupData={};
+  S.nodes.forEach(function(n){
+    if(n.hidden)return;
+    var b=fBilling(n);var on=S.onlineSet.has(n.uuid);var g=n.group||'未分组';
+    if(b.monthly>0&&b.currency){if(!totals[b.currency])totals[b.currency]=0;totals[b.currency]+=b.monthly}
+    if(b.str==='免费')freeCount++;
+    var rv=0;
+    if(n.expired_at&&b.monthly>0&&b.currency){
+      var ed=new Date(n.expired_at);var nw=new Date();
+      var rd=Math.max(0,Math.ceil((ed-nw)/86400000));
+      if(rd>3650)rd=0;
+      var cdd=parseInt(n.billing_cycle)||30;
+      rv=cdd>0?(rd/cdd)*n.price:0;
+      if(rv>b.monthly*120)rv=0;
+    }
+    var row={node:n,billing:b,online:on,group:g,remainVal:rv};
+    nodeRows.push(row);
+    if(!groupData[g])groupData[g]={rows:[],totals:{},remainTotals:{}};
+    groupData[g].rows.push(row);
+    if(b.monthly>0&&b.currency){if(!groupData[g].totals[b.currency])groupData[g].totals[b.currency]=0;groupData[g].totals[b.currency]+=b.monthly}
+    if(rv>0&&b.currency){if(!groupData[g].remainTotals[b.currency])groupData[g].remainTotals[b.currency]=0;groupData[g].remainTotals[b.currency]+=rv}
+  });
+  var sh='';var totalEntries=Object.entries(totals);var dc=S._displayCurrency;
+  if(totalEntries.length===0){
+    sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-text-dim)">--</div><div class="bill-sum-lbl">MONTHLY COST</div></div>';
+    sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-text-dim)">--</div><div class="bill-sum-lbl">YEARLY COST</div></div>';
+  }else if(dc!=='original'&&S._rates){
+    var mTotal=0;totalEntries.forEach(function(e){var c=convertCurrency(e[1],e[0],dc);if(c)mTotal+=c.amount;else mTotal+=e[1]});
+    var sym=S._currencySymbols[dc]||dc;
+    sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-accent)">'+sym+mTotal.toFixed(2)+'</div><div class="bill-sum-lbl">MONTHLY COST ('+dc+')</div></div>';
+    sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-accent)">'+sym+(mTotal*12).toFixed(2)+'</div><div class="bill-sum-lbl">YEARLY COST ('+dc+')</div></div>';
+  }else{
+    totalEntries.forEach(function(e){
+      sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-accent)">'+e[0]+e[1].toFixed(2)+'</div><div class="bill-sum-lbl">MONTHLY ('+e[0]+')</div></div>';
+      sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-accent)">'+e[0]+(e[1]*12).toFixed(2)+'</div><div class="bill-sum-lbl">YEARLY ('+e[0]+')</div></div>';
+    });
+  }
+  sh+='<div class="bill-sum-card"><div class="bill-sum-val">'+nodeRows.length+'</div><div class="bill-sum-lbl">TOTAL NODES</div></div>';
+  sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-success)">'+nodeRows.filter(function(r){return r.online}).length+'</div><div class="bill-sum-lbl">ONLINE</div></div>';
+  sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-warn)">'+Object.keys(groupData).length+'</div><div class="bill-sum-lbl">GROUPS</div></div>';
+  if(freeCount>0)sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-text-dim)">'+freeCount+'</div><div class="bill-sum-lbl">FREE TIER</div></div>';
+  var remainTotals={};nodeRows.forEach(function(r){if(r.remainVal>0&&r.billing.currency){var c=r.billing.currency;if(!remainTotals[c])remainTotals[c]=0;remainTotals[c]+=r.remainVal}});
+  var remainEntries=Object.entries(remainTotals);
+  if(remainEntries.length>0){
+    if(dc!=='original'&&S._rates){var rTotal=0;remainEntries.forEach(function(e){var c=convertCurrency(e[1],e[0],dc);if(c)rTotal+=c.amount;else rTotal+=e[1]});sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-success)">'+(S._currencySymbols[dc]||dc)+rTotal.toFixed(2)+'</div><div class="bill-sum-lbl">REMAINING ('+dc+')</div></div>'}
+    else{remainEntries.forEach(function(e){sh+='<div class="bill-sum-card"><div class="bill-sum-val" style="color:var(--p-success)">'+e[0]+e[1].toFixed(2)+'</div><div class="bill-sum-lbl">REMAINING ('+e[0]+')</div></div>'})}
+  }
+  sumEl.innerHTML=sh;
+  if(S._billView==='group')rBillGroup(groupData,totalEntries);else rBillFlat(nodeRows,totalEntries);
+}
+
+function billRow(r){
+  var n=r.node;var b=r.billing;
+  var priceStr=b.str||'<span style="color:var(--p-text-dim)">--</span>';
+  var monthlyStr=b.monthly>0?'<span class="bill-monthly">'+fmtConverted(b.monthly,b.currency)+'</span>':(b.str==='免费'?'<span class="bill-free">免费</span>':'<span style="color:var(--p-text-dim)">--</span>');
+  var cycleStr='';
+  if(n.billing_cycle){var cd=parseInt(n.billing_cycle);if(cd<=31)cycleStr='月付';else if(cd<=93)cycleStr='季付';else if(cd<=186)cycleStr='半年付';else if(cd<=366)cycleStr='年付';else cycleStr=Math.round(cd/365)+'年付'}
+  var expStr='--';
+  if(n.expired_at&&!n.expired_at.startsWith('0001')){expStr=n.expired_at.split('T')[0]}
+  var bRem='--';var bRc='var(--p-text-dim)';
+  if(n.expired_at&&b.monthly>0){var ed=new Date(n.expired_at);var nw=new Date();var rd=Math.max(0,Math.ceil((ed-nw)/86400000));if(rd<=3650){var cdd=parseInt(n.billing_cycle)||30;var rv=(rd/cdd)*n.price;bRem=fmtConverted(rv,b.currency)+' ('+rd+'d)';bRc=rd<=7?'var(--p-danger)':rd<=30?'var(--p-warn)':'var(--p-success)'}}
+  return '<tr><td class="bill-node-name" onclick="nav(\'/detail/'+n.uuid+'\')">'+esc(n.name||n.uuid)+'</td><td><span class="bill-badge '+(r.online?'on':'off')+'">'+(r.online?'ONLINE':'OFFLINE')+'</span></td><td>'+priceStr+'</td><td style="font-size:11px;color:var(--p-text-dim)">'+cycleStr+'</td><td>'+monthlyStr+'</td><td style="font-size:11px;color:var(--p-text-dim)">'+expStr+'</td><td style="color:'+bRc+';font-size:11px;font-weight:600">'+bRem+'</td></tr>';
+}
+
+function rBillGroup(groupData,totalEntries){
+  var el=document.getElementById('billContent');
+  var gNames=Object.keys(groupData).sort(function(a,b){var at=0,bt=0;Object.values(groupData[a].totals).forEach(function(v){at+=v});Object.values(groupData[b].totals).forEach(function(v){bt+=v});return bt-at});
+  var h='';
+  gNames.forEach(function(gn){
+    var gd=groupData[gn];
+    var gCost=Object.entries(gd.totals).map(function(e){return fmtConverted(e[1],e[0])+'/月'}).join(' + ')||'--';
+    var gRem=Object.entries(gd.remainTotals||{}).map(function(e){return fmtConverted(e[1],e[0])}).join(' + ');
+    h+='<div class="bill-group"><div class="bill-group-hdr"><span class="bill-group-name">'+esc(gn)+'</span><span class="bill-group-line"></span><span class="bill-group-stats">'+gd.rows.length+' NODES</span>'+(gRem?'<span class="bill-group-stats" style="color:var(--p-success)">剩余 '+gRem+'</span>':'')+'<span class="bill-group-cost">'+gCost+'</span></div>';
+    h+='<div style="background:var(--p-surface);border:1px solid var(--p-border-strong);overflow-x:auto"><table class="bill-table"><thead><tr><th>NODE</th><th>STATUS</th><th>PRICE</th><th>CYCLE</th><th>MONTHLY</th><th>EXPIRES</th><th>REMAINING</th></tr></thead><tbody>';
+    gd.rows.sort(function(a,b){return b.billing.monthly-a.billing.monthly});
+    gd.rows.forEach(function(r){h+=billRow(r)});
+    Object.entries(gd.totals).forEach(function(e){
+      h+='<tr class="bill-total-row"><td colspan="4" style="text-align:right;font-family:var(--p-mono);font-size:9px;letter-spacing:1.5px;color:var(--p-text-dim)">'+esc(gn)+' SUBTOTAL ('+e[0]+')</td><td class="bill-monthly" style="font-size:13px">'+fmtConverted(e[1],e[0])+'/月</td><td></td><td></td></tr>';
+    });
+    h+='</tbody></table></div></div>';
+  });
+  if(totalEntries.length>0){
+    h+='<div style="margin-top:8px;padding:14px 20px;background:var(--p-accent-subtle);border:1px solid var(--p-border-strong);display:flex;justify-content:flex-end;align-items:center;gap:20px">';
+    h+='<span style="font-family:var(--p-mono);font-size:9px;letter-spacing:2px;color:var(--p-text-dim);font-weight:600">GRAND TOTAL</span>';
+    totalEntries.forEach(function(e){h+='<span style="font-family:var(--p-sans);font-size:20px;font-weight:800;color:var(--p-accent)">'+fmtConverted(e[1],e[0])+'<span style="font-size:11px;opacity:.5;margin-left:2px">/月</span></span>'});
+    var allRem={};gNames.forEach(function(gn){groupData[gn].rows.forEach(function(r){if(r.remainVal>0&&r.billing.currency){var c=r.billing.currency;if(!allRem[c])allRem[c]=0;allRem[c]+=r.remainVal}})});
+    var allRemE=Object.entries(allRem);
+    if(allRemE.length>0){h+='<span style="opacity:.3;margin:0 6px">|</span><span style="font-family:var(--p-mono);font-size:9px;letter-spacing:2px;color:var(--p-text-dim)">REMAINING</span>';allRemE.forEach(function(e){h+='<span style="font-family:var(--p-sans);font-size:20px;font-weight:800;color:var(--p-success)">'+fmtConverted(e[1],e[0])+'</span>'})}
+    h+='</div>';
+  }
+  el.innerHTML=h;
+}
+
+function rBillFlat(nodeRows,totalEntries){
+  var el=document.getElementById('billContent');
+  nodeRows.sort(function(a,b){return b.billing.monthly-a.billing.monthly});
+  var h='<div style="background:var(--p-surface);border:1px solid var(--p-border-strong);overflow-x:auto"><table class="bill-table"><thead><tr><th>NODE</th><th>STATUS</th><th>GROUP</th><th>PRICE</th><th>CYCLE</th><th>MONTHLY</th><th>EXPIRES</th><th>REMAINING</th></tr></thead><tbody>';
+  nodeRows.forEach(function(r){
+    var n=r.node;var b=r.billing;
+    var priceStr=b.str||'--';
+    var monthlyStr=b.monthly>0?'<span class="bill-monthly">'+fmtConverted(b.monthly,b.currency)+'</span>':(b.str==='免费'?'<span class="bill-free">免费</span>':'--');
+    var cycleStr='';if(n.billing_cycle){var cd=parseInt(n.billing_cycle);if(cd<=31)cycleStr='月付';else if(cd<=93)cycleStr='季付';else if(cd<=186)cycleStr='半年付';else if(cd<=366)cycleStr='年付';else cycleStr=Math.round(cd/365)+'年付'}
+    var expStr='--';if(n.expired_at&&!n.expired_at.startsWith('0001'))expStr=n.expired_at.split('T')[0];
+    var bRem='--';var bRc='var(--p-text-dim)';
+    if(n.expired_at&&b.monthly>0){var ed=new Date(n.expired_at);var nw=new Date();var rd=Math.max(0,Math.ceil((ed-nw)/86400000));if(rd<=3650){var cdd=parseInt(n.billing_cycle)||30;var rv=(rd/cdd)*n.price;bRem=fmtConverted(rv,b.currency)+' ('+rd+'d)';bRc=rd<=7?'var(--p-danger)':rd<=30?'var(--p-warn)':'var(--p-success)'}}
+    h+='<tr><td class="bill-node-name" onclick="nav(\'/detail/'+n.uuid+'\')">'+esc(n.name||n.uuid)+'</td><td><span class="bill-badge '+(r.online?'on':'off')+'">'+(r.online?'ONLINE':'OFFLINE')+'</span></td><td style="color:var(--p-text-dim)">'+esc(n.group||'--')+'</td><td>'+priceStr+'</td><td style="font-size:11px;color:var(--p-text-dim)">'+cycleStr+'</td><td>'+monthlyStr+'</td><td style="font-size:11px;color:var(--p-text-dim)">'+expStr+'</td><td style="color:'+bRc+';font-size:11px;font-weight:600">'+bRem+'</td></tr>';
+  });
+  totalEntries.forEach(function(e){h+='<tr class="bill-total-row"><td colspan="6" style="text-align:right;font-family:var(--p-mono);font-size:9px;letter-spacing:1.5px;color:var(--p-text-dim)">TOTAL ('+e[0]+')</td><td class="bill-monthly" style="font-size:14px">'+fmtConverted(e[1],e[0])+'/月</td><td></td></tr>'});
+  h+='</tbody></table></div>';
+  el.innerHTML=h;
 }
 
 function init(){initTh();/* stubbed */uClock();setInterval(uClock,1000);initQ();bind();initAcronym();/* stubbed */
