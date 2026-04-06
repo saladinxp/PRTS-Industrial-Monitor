@@ -1,0 +1,59 @@
+{
+    "name": "PRTS Industrial Monitor",
+    "short": "PRTS-Industrial",
+    "description": "工业结构美监控面板主题 · Industrial Structural Beauty",
+    "version": "2.5.4",
+    "author": "Miuler",
+    "url": "",
+    "preview": "dist/preview.png",
+    "configuration": {
+        "type": "managed",
+        "name": "[ PRTS ] 主题配置",
+        "data": [
+            {
+                "name": "◆ PANEL INFO // 面板标识",
+                "type": "title"
+            },
+            {
+                "key": "version_tag",
+                "name": "[ SYS.VER ] 版本标识",
+                "type": "string",
+                "default": "v2.5.4",
+                "help": "面板版本号"
+            },
+            {
+                "key": "footer_text",
+                "name": "[ FOOTER ] 状态栏文字",
+                "type": "string",
+                "default": "SYSTEM MONITORING ACTIVE",
+                "help": "底部状态栏文字"
+            },
+            {
+                "name": "◆ ILLUST MODULE // 立绘系统",
+                "type": "title"
+            },
+            {
+                "key": "illust_urls",
+                "name": "[ ILLUST ] 立绘图片链接",
+                "type": "string",
+                "default": "https://img.uppic.to/2026/02/17/010a13c19c6c65c32e9.jpg;https://img.uppic.to/2026/02/17/009153f0e14da0a079b.jpg;https://img.uppic.to/2026/02/17/008773e788f64c38f45.jpg;https://img.uppic.to/2026/02/17/007f7b74369839e1f89.jpg;https://img.uppic.to/2026/02/17/00615360d56ce1c0250.jpg;https://img.uppic.to/2026/02/17/005a0493c3a25795c27.jpg;https://img.uppic.to/2026/02/17/004296fb01e4d3ba466.jpg;https://img.uppic.to/2026/02/17/0036037e55aeb3f8ce3.jpg;https://img.uppic.to/2026/02/17/002d5f606e55d9930ba.jpg;https://img.uppic.to/2026/02/17/001deaff6cb83fa75a2.jpg",
+                "help": "立绘资源 — 多张图片用分号(;)分隔，留空禁用"
+            },
+            {
+                "name": "◆ ANNOUNCE // 公告系统",
+                "type": "title"
+            },
+            {
+                "key": "announce_text",
+                "name": "[ NOTICE ] 公告内容",
+                "type": "string",
+                "default": "",
+                "help": "首页滚动公告 — 留空隐藏公告栏"
+            },
+            {
+                "name": "◆ WORLD MAP // 世界地图",
+                "type": "title"
+            }
+        ]
+    }
+}
