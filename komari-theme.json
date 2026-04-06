@@ -2,7 +2,7 @@
     "name": "PRTS Industrial Monitor",
     "short": "PRTS-Industrial",
     "description": "工业结构美监控面板主题 · Industrial Structural Beauty",
-    "version": "2.5.4",
+    "version": "1.0.0",
     "author": "Miuler",
     "url": "",
     "preview": "dist/preview.png",
@@ -18,7 +18,7 @@
                 "key": "version_tag",
                 "name": "[ SYS.VER ] 版本标识",
                 "type": "string",
-                "default": "v2.5.4",
+                "default": "v1.0.0",
                 "help": "面板版本号"
             },
             {

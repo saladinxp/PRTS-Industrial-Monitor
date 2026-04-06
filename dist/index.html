@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Share+Tech+Mono&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   PRTS THEME v2.5.4 — World Map + Zoom + Dark Enhancement — Endfield Structural Beauty
+   PRTS THEME v1.0.0 — World Map + Zoom + Dark Enhancement — Endfield Structural Beauty
    Design: Endfield工业结构美 · 双色策略蓝+黄 · 虚线边界 · 大字锚点
    ============================================================ */
 :root {
@@ -87,13 +87,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .hud-bar-fill{height:100%;background:var(--p-accent);transition:width .8s ease;width:0}
 .hud-right-text{display:flex;flex-direction:column;align-items:center}
 @media(max-width:1100px){.nav-hud-left,.nav-hud-right{display:none}}
-.nav-center-info{display:none}
 .nav-controls{display:flex;align-items:center;gap:6px}
 .nav-btn{background:transparent;border:1px solid var(--p-border-strong);border-radius:var(--p-radius);color:var(--p-text-secondary);font-family:var(--p-mono);font-size:10px;padding:5px 10px;cursor:pointer;transition:all .2s;letter-spacing:1px}
 .nav-btn:hover{color:var(--p-text);border-color:var(--p-text-dim)}
 .nav-search{background:var(--p-bg);border:1px solid var(--p-border-strong);border-radius:var(--p-radius);color:var(--p-text);font-family:var(--p-mono);font-size:11px;padding:5px 12px;outline:none;caret-color:var(--p-accent);transition:border-color .2s;width:200px;letter-spacing:1px}
 .nav-search:focus{border-color:var(--p-accent)}.nav-search::placeholder{color:var(--p-text-dim)}
-#data-ticker{display:none}
 
 /* MAIN */
 .main-content{flex:1;padding:10px 32px;max-width:1440px;width:100%;margin:0 auto}
@@ -363,7 +361,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 #tear-transition{display:none}
 
 /* ALL HIDDEN DECORATIVES */
-#watermark-text,#page-sweep,#corner-deco,#crosshair-deco,#light-orb1,#light-orb2,#light-orb3,#glass-bg,#noise-grain,#bg-hatch,#bg-vignette,#deco-lines,#connector-lines,#hex-pattern,#ambient-glow,#glitch-overlay,#emp-ring,#sweep-beam,#data-fragments,#vignette,#hex-grid,#topo-contour,#grain-overlay,#tech-canvas-bg,#particle-canvas,#circuit-bg,#tech-scanline,#mouse-trail-canvas,.screen-hud-corner,.bg-tech-text,#screen-crosshair,.nav-accent-bar,.nav-deco-right,.nav-light-sweep,.nav-heartbeat,.acronym-stage,.nav-sys-line{display:none!important}
+/* Dead element cleanup — removed legacy selectors */
 
 /* SETTINGS PANEL */
 #tv-gear{position:fixed;bottom:20px;right:calc(var(--p-rail-w) + 12px);z-index:100001;width:32px;height:32px;cursor:pointer;background:var(--p-surface);border:1px solid var(--p-border-strong);display:flex;align-items:center;justify-content:center;transition:all .2s;opacity:.5}
@@ -498,7 +496,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 .wmap-node-dot.off{background:var(--p-danger);opacity:.6}
 .wmap-node-name{color:var(--p-text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wmap-node-region{color:var(--p-text-dim);font-size:9px;flex-shrink:0}
-/* ===== RESPONSIVE — MOBILE ADAPTATION v2.5.4 ===== */
+/* ===== RESPONSIVE — MOBILE ADAPTATION v1.0.0 ===== */
 
 /* --- Tablet ≤900px --- */
 @media(max-width:900px){
@@ -843,16 +841,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   <div class="screen-hud-corner shc-tr"><div class="shc-frame-h"></div><div class="shc-frame-v"></div><div class="shc-text">SYS:NOMINAL<span class="shc-dot" style="margin-left:3px;margin-right:0"></span></div></div>
   <div class="screen-hud-corner shc-bl"><div class="shc-frame-h"></div><div class="shc-frame-v"></div><div class="shc-text"><span class="shc-dot"></span>SEC:AES-256</div></div>
   <div class="screen-hud-corner shc-br"><div class="shc-frame-h"></div><div class="shc-frame-v"></div><div class="shc-text">MONITOR:ACTIVE<span class="shc-dot" style="margin-left:3px;margin-right:0"></span></div></div>
-  <!-- Background tech text decorations -->
-  <div class="bg-tech-text bgt-1">RHODES ISLAND PHARMACEUTICAL // TERMINAL SERVICE v4.2.1 // AUTH:GRANTED</div>
-  <div class="bg-tech-text bgt-2">0x7F3A :: NEURAL_LINK :: BANDWIDTH:OPTIMAL :: LATENCY:&lt;1ms</div>
-  <div class="bg-tech-text bgt-3">◈ SYSTEM.KERNEL.ACTIVE ◈ FIREWALL.STATUS:UP ◈ CACHE:HIT ◈ BUFFER:NOMINAL</div>
-  <div class="bg-tech-text bgt-4">SECTOR-7G // NODE_ARRAY[0..N] // UPLINK:STABLE // FREQ:2.4GHz</div>
-  <div class="bg-tech-text bgt-5">TCP/443 :: TLS1.3 :: CIPHER:ECDHE-RSA :: VERIFY:PASS</div>
-  <div class="bg-tech-text bgt-6">HASH:SHA256:e3b0c44298fc1c149afb :: INTEGRITY:VERIFIED</div>
-  <div class="bg-tech-text bgt-7">◇ KOMARI.MONITOR // BUILD:20260217 // ENV:PRODUCTION</div>
-  <canvas id="circuit-bg"></canvas>
-  <div id="tech-scanline"></div>
   <div id="hex-pattern"></div>
   <div id="ambient-glow"></div>
   
@@ -872,7 +860,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   <div id="light-orb2"></div>
   <div id="light-orb3"></div>
   <!-- Arknights Side Rails -->
-  <div id="side-rail-left"><span class="rail-label rail-label-top">SYSTEM // MONITOR</span><span class="rail-label rail-label-mid">KOMARI</span><span class="rail-label rail-label-bot">PRTS v2.5.4</span></div>
+  <div id="side-rail-left"><span class="rail-label rail-label-top">SYSTEM // MONITOR</span><span class="rail-label rail-label-mid">KOMARI</span><span class="rail-label rail-label-bot">PRTS v1.0.0</span></div>
   <div id="side-rail-right"><span class="rail-indicator rail-indicator-page">01 / 01 DASHBOARD</span></div>
   <div id="app-root">
     <!-- v2.1 Endfield Marquee -->
@@ -884,11 +872,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
     </div>
     <div id="tech-quota-bar"><span>QUOTA</span><div class="quota-track"><div class="quota-fill" id="quota-fill"></div></div><span id="quota-status">AWAITING DATA</span></div>
     <nav id="tech-nav"><div class="nav-accent-bar"></div><div class="nav-deco-right"></div><div class="nav-light-sweep"></div>
-      <div class="nav-brand" id="nav-home"><span class="nav-title">KOMARI</span><span class="nav-subtitle">Monitor</span><div class="nav-hud-left"><div class="hud-ring"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(0,184,212,0.15)" stroke-width="1.5"/><circle cx="24" cy="24" r="20" fill="none" stroke="var(--p-accent)" stroke-width="1.5" stroke-dasharray="40 86" stroke-linecap="round" class="hud-ring-arc"/><circle cx="24" cy="24" r="14" fill="none" stroke="rgba(0,184,212,0.1)" stroke-width="1"/><circle cx="24" cy="24" r="3" fill="var(--p-accent)" opacity="0.6"/></svg></div><div class="hud-left-text"><div class="hud-label">SYS.VER</div><div class="hud-val" id="hud-ver">v2.5.4</div><div class="hud-label" style="margin-top:4px">UPTIME</div><div class="hud-val" id="hud-uptime">--:--:--</div></div></div></div>
-      <div class="nav-center-info"><div class="acronym-stage" id="acronym-stage"></div><div class="nav-sys-line" id="nav-sys-line"></div><div class="nav-heartbeat"><svg viewBox="0 0 600 24" preserveAspectRatio="none"><polyline fill="none" stroke="rgba(0,184,212,0.6)" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round" points="0,12 20,12 30,12 35,4 40,20 45,8 50,16 55,12 80,12 110,12 120,12 125,3 130,21 135,7 140,17 145,12 170,12 200,12 210,12 215,5 220,19 225,9 230,15 235,12 260,12 300,12 310,12 315,4 320,20 325,8 330,16 335,12 360,12 390,12 400,12 405,3 410,21 415,7 420,17 425,12 450,12 480,12 490,12 495,5 500,19 505,9 510,15 515,12 540,12 570,12 580,12 585,4 590,20 595,8 600,12"/></svg></div></div>
+      <div class="nav-brand" id="nav-home"><span class="nav-title">KOMARI</span><span class="nav-subtitle">Monitor</span><div class="nav-hud-left"><div class="hud-ring"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(0,184,212,0.15)" stroke-width="1.5"/><circle cx="24" cy="24" r="20" fill="none" stroke="var(--p-accent)" stroke-width="1.5" stroke-dasharray="40 86" stroke-linecap="round" class="hud-ring-arc"/><circle cx="24" cy="24" r="14" fill="none" stroke="rgba(0,184,212,0.1)" stroke-width="1"/><circle cx="24" cy="24" r="3" fill="var(--p-accent)" opacity="0.6"/></svg></div><div class="hud-left-text"><div class="hud-label">SYS.VER</div><div class="hud-val" id="hud-ver">v1.0.0</div><div class="hud-label" style="margin-top:4px">UPTIME</div><div class="hud-val" id="hud-uptime">--:--:--</div></div></div></div>
       <div class="nav-controls"><div class="nav-hud-right"><div class="hud-bars"><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-cpu-bar"></div></div><span class="hud-bar-label">CPU</span></div><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-mem-bar"></div></div><span class="hud-bar-label">MEM</span></div><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-net-bar"></div></div><span class="hud-bar-label">NET</span></div></div><div class="hud-right-text"><div class="hud-label">NODES</div><div class="hud-val" id="hud-nodes">--/--</div></div></div><input type="text" class="nav-search" id="search-input" placeholder="搜索: 名称/分组/标签/系统..."><button class="nav-btn" id="btn-theme" title="切换主题">◐</button><button class="nav-btn" id="btn-auth" title="登录">⎆</button></div>
     </nav>
-    <div id="data-ticker"><div class="ticker-inner">◈ SYSTEM INTEGRITY: NOMINAL ◈ ENCRYPTION: AES-256 ◈ FIREWALL: ACTIVE ◈ PROTOCOL: TCP/UDP ◈ LATENCY: &lt;1ms ◈ AUTH: VERIFIED ◈ SCAN: CLEAR ◈ UPLINK: STABLE ◈ NODE SYNC: OK ◈ BUFFER: NOMINAL ◈ CACHE: HIT ◈ ROUTE: OPTIMIZED ◈ KOMARI MONITOR SYSTEM ◈ SECURE CHANNEL ESTABLISHED ◈</div></div>
     <!-- DASHBOARD -->
     <div class="main-content page active" id="page-dashboard">
       <div class="endfield-header"><span class="ef-prefix">// KOMARI MONITOR</span><div class="ef-bar-arrow"><div class="ef-bar"></div><span class="ef-arrow">↘</span></div><span class="ef-title-en">DASHBOARD</span><span class="ef-title-cn">系 统 总 览</span></div>
@@ -997,7 +983,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
       </div>
       <div class="wmap-node-list" id="wmap-node-list"></div>
     </div>
-    <div id="tech-footer"><div class="ft-brand-strip"><span>KOMARI MONITOR</span><span class="fbs-sep">/</span><span>PRTS INDUSTRIAL</span></div><div class="ft-color-bar"></div><div class="footer-meta"><span class="theme-version">PRTS v2.5.4</span><span class="footer-sep">//</span><span class="theme-author"><span class="author-bracket">&#x27E8;</span> ENGINEERED BY <a href="https://lol.moe" target="_blank" rel="noopener" class="author-name">MIULER</a> <span class="author-bracket">&#x27E9;</span></span><span class="footer-sep">//</span><span class="powered-by">Powered by <a href="https://github.com/komari-monitor/komari" target="_blank" rel="noopener">Komari Monitor</a></span></div></div>
+    <div id="tech-footer"><div class="ft-brand-strip"><span>KOMARI MONITOR</span><span class="fbs-sep">/</span><span>PRTS INDUSTRIAL</span></div><div class="ft-color-bar"></div><div class="footer-meta"><span class="theme-version">PRTS v1.0.0</span><span class="footer-sep">//</span><span class="theme-author"><span class="author-bracket">&#x27E8;</span> ENGINEERED BY <a href="https://lol.moe" target="_blank" rel="noopener" class="author-name">MIULER</a> <span class="author-bracket">&#x27E9;</span></span><span class="footer-sep">//</span><span class="powered-by">Powered by <a href="https://github.com/komari-monitor/komari" target="_blank" rel="noopener">Komari Monitor</a></span></div></div>
 <!-- [v2.0.0] Endfield Settings Panel -->
 <div id="tv-gear" title="Settings"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
 <div id="tv-overlay"></div>
@@ -1015,7 +1001,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 <div class="tvs-row on" data-key="marquee_enabled"><span class="tvs-dot"></span><div class="tvs-info"><div class="tvs-name">顶部滚动文字</div><div class="tvs-meta"><span class="tvs-desc">MARQUEE SCROLL</span><span class="tvs-cost tvs-cost-l">LOW</span></div></div><label class="tvs-sw"><input type="checkbox" checked><span class="tvs-track"></span><span class="tvs-knob"></span></label></div>
 <div class="tvs-row on" data-key="ghost_text_enabled"><span class="tvs-dot"></span><div class="tvs-info"><div class="tvs-name">背景大字</div><div class="tvs-meta"><span class="tvs-desc">GHOST TEXT</span><span class="tvs-cost tvs-cost-l">LOW</span></div></div><label class="tvs-sw"><input type="checkbox" checked><span class="tvs-track"></span><span class="tvs-knob"></span></label></div>
 </div>
-<div class="tvs-footer"><span>PRTS CONFIG</span><span style="opacity:.5">v2.5.4</span></div>
+<div class="tvs-footer"><span>PRTS CONFIG</span><span style="opacity:.5">v1.0.0</span></div>
 </div>
   </div>
 
@@ -1026,7 +1012,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 // Arknights loading bar animation — smooth RAF-based
 (function(){
 // Generate floating particles
-var pc=document.getElementById('ark-particles');if(pc){for(var pi=0;pi<20;pi++){var dot=document.createElement('div');dot.className='ark-particle';dot.style.left=Math.random()*100+'%';dot.style.animationDuration=(4+Math.random()*6)+'s';dot.style.animationDelay=(-Math.random()*10)+'s';dot.style.width=dot.style.height=(1+Math.random()*2)+'px';pc.appendChild(dot)}}
+var pc=document.getElementById('ark-particles');if(pc){for(var pi=0;pi<10;pi++){var dot=document.createElement('div');dot.className='ark-particle';dot.style.left=Math.random()*100+'%';dot.style.animationDuration=(4+Math.random()*6)+'s';dot.style.animationDelay=(-Math.random()*10)+'s';dot.style.width=dot.style.height=(1+Math.random()*2)+'px';pc.appendChild(dot)}}
 // Arknights date display
 (function(){var now=new Date();var dd=String(now.getDate()).padStart(2,'0');var mm=String(now.getMonth()+1).padStart(2,'0');var yyyy=now.getFullYear();var yy=String(yyyy).slice(-2);
 var ad=document.getElementById('ark-date');if(ad)ad.innerHTML='<span class="ark-date-big">'+dd+'</span><div class="ark-date-side"><span class="ark-date-slash">// '+mm+' / '+yy+'</span><span class="ark-date-label">KOMARI</span></div>';
@@ -1105,6 +1091,7 @@ function fExpire(n){if(!n.expired_at)return'';var exp=new Date(n.expired_at);if(
 function fIPTags(n){var t='';var bi=n.basic_info||n.basicInfo||{};var v4=n.ipv4||n.IPv4||n.ip_v4||n.ipv4_addr||bi.ipv4||'';var v6=n.ipv6||n.IPv6||n.ip_v6||n.ipv6_addr||bi.ipv6||'';if(v4)t+='<span class="ip-tag">V4</span>';if(v6)t+='<span class="ip-tag v6">V6</span>';return t}
 function pd(n){return String(n).padStart(2,'0')}
 function esc(s){return s?s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}
+function cAlpha(c,a){if(!c)return'rgba(0,0,0,'+a+')';c=c.trim();if(c.charAt(0)==='#'){var hex=c.slice(1);if(hex.length===3)hex=hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];var r=parseInt(hex.substring(0,2),16),g=parseInt(hex.substring(2,4),16),b=parseInt(hex.substring(4,6),16);return'rgba('+r+','+g+','+b+','+a+')'}var m=c.match(/rgba?\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);if(m)return'rgba('+m[1]+','+m[2]+','+m[3]+','+a+')';return c}
 function fT(t){var d=new Date(t);return pd(d.getHours())+':'+pd(d.getMinutes())}
 function fD(t){var d=new Date(t);return(d.getMonth()+1)+'/'+d.getDate()+' '+pd(d.getHours())+':'+pd(d.getMinutes())}
 // Clock
@@ -1112,7 +1099,7 @@ function uClock(){var e=document.getElementById('tech-clock');if(!e)return;var n
 // Quota
 function initQ(){var f=document.getElementById('quota-fill');if(!f)return;var p=-100;(function t(){p+=.6;if(p>350)p=-100;f.style.transform='translateX('+p+'%)';requestAnimationFrame(t)})()}
 // Canvas
-function initC(){}
+
 // Particles near mouse
 function initSpectacle(){
 // ===== ELECTRIC CURRENT + COLOR BAND SYSTEM FOR OFFLINE CARDS =====
@@ -1161,7 +1148,9 @@ band.y+=band.speed;
 if(cy-bw/2>clH+30){band.active=false;if(colorLayer)colorLayer.style.clipPath='polygon(0 0,0 0,0 0,0 0)';}}
 // --- Animation Loop ---
 var lastSpawn=0;currents.push(new Cur());
-var _lf=0,_fi=1000/30;function animate(ts){if(!document.contains(card))return;var dt=ts-_lf;if(dt<_fi){requestAnimationFrame(animate);return}_lf=ts-(dt%_fi);if(document.hidden){requestAnimationFrame(animate);return}cCtx.clearRect(0,0,w,h);
+var _lf=0,_fi=1000/30,_visible=true;
+if(typeof IntersectionObserver!=='undefined'){var _io=new IntersectionObserver(function(es){_visible=es[0].isIntersecting},{threshold:0});_io.observe(card)}
+function animate(ts){if(!document.contains(card))return;var dt=ts-_lf;if(dt<_fi){requestAnimationFrame(animate);return}_lf=ts-(dt%_fi);if(document.hidden||!_visible){requestAnimationFrame(animate);return}cCtx.clearRect(0,0,w,h);
 if(!lastSpawn)lastSpawn=ts;
 if(ts-lastSpawn>2000+Math.random()*2500){currents.push(new Cur());lastSpawn=ts;}
 for(var i=currents.length-1;i>=0;i--){var c=currents[i];c.update();drawCur(c);if(c.fork&&!c.fork.done)drawCur(c.fork);if(c.done&&(!c.fork||c.fork.done))currents.splice(i,1);}
@@ -1204,35 +1193,7 @@ var htGrid=document.getElementById('cards-grid');
 if(htGrid)htObs.observe(htGrid,{childList:true});
 setTimeout(initHalftones,600);
 // ===== END HALFTONE =====
-// ===== SPARK PARTICLE SYSTEM — 高负载火花飞溅 =====
-function initSparks(){}
-// Re-init sparks on card rebuild
-var sparkObserver=new MutationObserver(function(){setTimeout(initSparks,300)});
-var sparkGrid=document.getElementById('cards-grid');
-if(sparkGrid)sparkObserver.observe(sparkGrid,{childList:true});
-setTimeout(initSparks,800);
-// ===== END SPARK SYSTEM =====
-var fragTexts=['SIGNAL_LOST','RECONNECTING...','BUFFER OVERFLOW','0xDEADBEEF','SYNC ERROR','PACKET_DROP','REROUTING...','AUTH TIMEOUT','CHECKSUM FAIL','MEMORY ALLOC','KERNEL PANIC','STACK TRACE','CORE DUMP','SEG FAULT','PING >9000'];
-// Glitch effect
-function glitch(){}
-// EMP pulse
-function emp(){}
-// Sweep beam
-function sweep(){}
-// Data fragments
-function frag(){}
-// Scheduler — stagger effects with some randomness
-var effects=[glitch,emp,sweep,frag];var idx=0;
-// Initial burst after 3 seconds
-setTimeout(function(){sweep()},3000);
-setTimeout(function(){frag()},5000);
-// Then cycle through effects with random intervals
-function schedNext(){}
-schedNext()}
-// Particles near mouse
-function initPart(){}
-// Circuit board background
-function initCircuit(){}
+}
 
 function initTh(){var s=localStorage.getItem('appearance')||'light';if(s==='system')s=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',s)}
 // Detail page halftone decoration
@@ -1333,54 +1294,18 @@ var nd=document.getElementById('hud-nodes');if(nd)nd.textContent=online+'/'+tota
 function initAcronym(){
 var startT=Date.now();
 setInterval(function(){var el=document.getElementById('hud-uptime');if(!el)return;var s=Math.floor((Date.now()-startT)/1000);var h=Math.floor(s/3600),m=Math.floor(s%3600/60),ss=s%60;el.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(ss<10?'0':'')+ss;},1000);
-var stage=document.getElementById('acronym-stage');
-if(!stage)return;
-var data=[
-{l:'K',w:'nowledge',ww:'130px'},
-{l:'O',w:'bservation',ww:'150px'},
-{l:'M',w:'onitoring',ww:'140px'},
-{l:'A',w:'nalytics',ww:'130px'},
-{l:'R',w:'esponse',ww:'120px'},
-{l:'I',w:'ntelligence',ww:'160px'}
-];
-var idx=0,phase='single';
-function showSingle(){
-stage.innerHTML='<span class="acr-letter">'+data[idx].l+'</span><span class="acr-word" style="--word-w:'+data[idx].ww+'">'+data[idx].w+'</span>';
 }
-function fadeAndNext(){
-stage.children[0]&&Array.from(stage.children).forEach(function(c){c.classList.add('acr-fade-out')});
-setTimeout(function(){
-idx++;
-if(idx<data.length){showSingle();}
-else{showMerged();}
-},350);
-}
-function showMerged(){
-phase='merged';
-var wl=data.map(function(d){return '<div class="acr-wordlist-item"><span>'+d.l+'</span>'+d.w+'</div>'}).join('');
-stage.innerHTML='<span class="acr-merged">KOMARI</span><div class="acr-wordlist">'+wl+'</div>';
-setTimeout(function(){
-stage.children[0]&&Array.from(stage.children).forEach(function(c){c.classList.add('acr-fade-out')});
-setTimeout(function(){phase='single';idx=0;showSingle();},400);
-},5000);
-}
-showSingle();
-setInterval(function(){if(phase==='single')fadeAndNext();},2200);
-// System status line
-var sysLines=['SYSTEM INTEGRITY: NOMINAL','ALL NODES MONITORED','ENCRYPTION: AES-256 ACTIVE','NETWORK SCAN: COMPLETE','DATA STREAM: SYNCHRONIZED','FIREWALL: OPERATIONAL','LATENCY CHECK: PASSED','THREAT LEVEL: MINIMAL','UPLINK STATUS: STABLE','DIAGNOSTICS: ALL CLEAR'];
-var sysEl=document.getElementById('nav-sys-line');
-if(!sysEl)return;
-var si=0;
-function nextSys(){sysEl.innerHTML='<span class="sys-text" style="display:inline-block;overflow:hidden;white-space:nowrap">'+sysLines[si]+'</span>';si=(si+1)%sysLines.length;}
-nextSys();setInterval(nextSys,4000);}
 // API
 function fetchMe(){return fetch('/api/me',{credentials:'same-origin'}).then(function(r){return r.json()}).then(function(d){S.loggedIn=!!(d&&d.logged_in)}).catch(function(){S.loggedIn=false})}
 function fetchN(){return fetch('/api/nodes').then(function(r){return r.json()}).then(function(r){if(r.status==='success'&&Array.isArray(r.data)){S.nodes=r.data.sort(function(a,b){return(a.weight||0)-(b.weight||0)});exG();fetchIP()}}).catch(function(){})}
 function fetchIP(){fetch('/api/rpc2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',method:'common:getNodes',params:{},id:Date.now()})}).then(function(r){return r.json()}).then(function(d){if(d.result){var rpcNodes=d.result;Object.keys(rpcNodes).forEach(function(uuid){var client=rpcNodes[uuid];var node=S.nodes.find(function(n){return n.uuid===uuid});if(node){if(client.ipv4)node.ipv4=client.ipv4;if(client.ipv6)node.ipv6=client.ipv6;if(client.tag)node.tag=client.tag;if(client.tags)node.tags=client.tags;if(client.label)node.label=client.label;if(client.labels)node.labels=client.labels}});render()}}).catch(function(){})}
-function fetchP(){return fetch('/api/public').then(function(r){return r.json()}).then(function(r){if(r.status==='success'&&r.data){S.themeSettings=r.data.theme_settings||{};if(r.data.sitename)S.sitename=r.data.sitename}}).catch(function(){})}
+function fetchP(){return fetch('/api/public').then(function(r){return r.json()}).then(function(r){if(r.status==='success'&&r.data){S.themeSettings=r.data.theme_settings||{};if(r.data.sitename)S.sitename=r.data.sitename;S.recordMaxH=Math.floor((r.data.record_preserve_time||24*3600)/3600);S.pingMaxH=Math.floor((r.data.ping_record_preserve_time||24*3600)/3600);buildTimeTabs()}}).catch(function(){})}
+function genTimeSteps(maxH){var steps=[{h:0,l:'实时'}];var all=[1,2,4,6,12,24,48,72,168,360,720,1440,2160];for(var i=0;i<all.length;i++){if(all[i]>maxH)break;var h=all[i],l;if(h<24)l=h+' 小时';else if(h<168)l=Math.round(h/24)+' 天';else l=Math.round(h/168)+' 周';steps.push({h:h,l:l})}return steps}
+function genPingSteps(maxH){var steps=[];var all=[1,2,4,6,12,24,48,72,168,360,720];for(var i=0;i<all.length;i++){if(all[i]>maxH)break;var h=all[i],l;if(h<24)l=h+' 小时';else if(h<168)l=Math.round(h/24)+' 天';else l=Math.round(h/168)+' 周';steps.push({h:h,l:l})}if(!steps.length)steps.push({h:1,l:'1 小时'});return steps}
+function buildTimeTabs(){var loadEl=document.getElementById('chart-time-tabs-load');var pingEl=document.getElementById('chart-time-tabs-ping');if(loadEl){var ls=genTimeSteps(S.recordMaxH||720);var h='';ls.forEach(function(s){h+='<button class="tab-btn'+(s.h===0?' active':'')+'" data-range="'+s.h+'">'+s.l+'</button>'});loadEl.innerHTML=h;loadEl.querySelectorAll('.tab-btn').forEach(function(b){b.addEventListener('click',function(){S.detailHours=parseInt(this.getAttribute('data-range'))||0;loadEl.querySelectorAll('.tab-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');ldDetData()})})}if(pingEl){var ps=genPingSteps(S.pingMaxH||24);var h2='';ps.forEach(function(s,i){h2+='<button class="tab-btn'+(i===0?' active':'')+'" data-range="'+s.h+'">'+s.l+'</button>'});pingEl.innerHTML=h2;pingEl.querySelectorAll('.tab-btn').forEach(function(b){b.addEventListener('click',function(){S.detailPingHours=parseInt(this.getAttribute('data-range'))||1;pingEl.querySelectorAll('.tab-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');ldDetData()})})}}
 // WS
 function conWS(){var proto=location.protocol==='https:'?'wss:':'ws:';try{S.ws=new WebSocket(proto+'//'+location.host+'/api/clients')}catch(e){reWS();return}
-S.ws.onopen=function(){S.wsRetries=0;S.ws.send('get');document.getElementById('sys-status').textContent='SYSTEM ONLINE';document.getElementById('quota-status').innerHTML='<span class="stream-dot"></span>STREAM ACTIVE';if(S._wsI)clearInterval(S._wsI);S._wsI=setInterval(function(){if(S.ws&&S.ws.readyState===1)S.ws.send('get')},1000)};
+S.ws.onopen=function(){S.wsRetries=0;S.ws.send('get');document.getElementById('sys-status').textContent='SYSTEM ONLINE';document.getElementById('quota-status').innerHTML='<span class="stream-dot"></span>STREAM ACTIVE';if(S._wsI)clearInterval(S._wsI);S._wsI=setInterval(function(){if(S.ws&&S.ws.readyState===1)S.ws.send('get')},3000)};
 S.ws.onmessage=function(e){try{var m=JSON.parse(e.data);if(m.status==='success'&&m.data){S.onlineSet=new Set(m.data.online||[]);S.liveData=m.data.data||{};if(isP('dashboard')){uCards();rSum();uCtr()}if(isP('detail')&&S.detailUUID)uDetLive();if(isP('worldmap')){if(S._wmZoom)S._wmZoomPrev={scale:S._wmZoom.scale,tx:S._wmZoom.tx,ty:S._wmZoom.ty};initWorldMap()}}}catch(x){console.error('[WS] onmessage error:',x)}};
 S.ws.onclose=function(){document.getElementById('sys-status').textContent='RECONNECTING';if(S._wsI)clearInterval(S._wsI);reWS()};S.ws.onerror=function(){if(S.ws)S.ws.close()}}
 function reWS(){if(S.wsRetries>=20)return;S.wsRetries++;setTimeout(conWS,3000)}
@@ -1435,7 +1360,7 @@ g.querySelectorAll('.card-offline-wrap').forEach(function(wrap){var card=wrap.qu
 function mH(l,v,isOfflineOverload){var val=Math.round(v*10)/10;var cl=mColor(val);var pulse=val>=80?' animation:mPulse 1.5s ease-in-out infinite;':'';var critCls=val>=90?' critical':'';var shakeCls=val>=95?' danger-shake':'';var glitchCls=isOfflineOverload?' glitch-text':'';var sparkHTML='';if(val>=80){sparkHTML='<div class="meter-spark-wrap" data-spark-intensity="'+(val>=95?'high':val>=85?'med':'low')+'"></div>'}return'<div class="meter-row"><span class="meter-label">'+l+'</span><div class="meter-track"><div class="meter-fill'+critCls+shakeCls+'" style="width:'+val+'%;background:linear-gradient(90deg,rgba('+cl.c+',0.3),'+cl.h+');box-shadow:0 0 8px rgba('+cl.c+',0.25);'+pulse+'">'+sparkHTML+'</div></div><span class="meter-value'+glitchCls+'">'+val.toFixed(1)+'%</span></div>'}
 // Incremental update
 function uCards(){var f=gF(),nu=f.map(function(n){return n.uuid});if(!S._lastF||nu.join(',')!==S._lastF.join(',')){rCards(f);S._lastF=nu;return}var needRebuild=false;f.forEach(function(n){var c=document.querySelector('.server-card[data-uuid="'+n.uuid+'"]');if(!c)return;var on=S.onlineSet.has(n.uuid);var wasOn=c.classList.contains('card-online');if(on!==wasOn){needRebuild=true}});if(needRebuild){rCards(f);S._lastF=nu;return}f.forEach(function(n){var c=document.querySelector('.server-card[data-uuid="'+n.uuid+'"]');if(!c)return;var on=S.onlineSet.has(n.uuid),l=S.liveData[n.uuid];var bd=c.querySelector('.card-body');if(!bd)return;var cp=0,rp=0,dp=0,sp=0,nu2=0,nd=0,ut=0,pr=0,tc=0,uc=0,ru=0,rt=0,du=0,dt=0;if(on&&l){cp=l.cpu?l.cpu.usage:0;rp=pc(l.ram?l.ram.used:0,l.ram?l.ram.total:1);dp=pc(l.disk?l.disk.used:0,l.disk?l.disk.total:1);sp=pc(l.swap?l.swap.used:0,l.swap?l.swap.total:1);nu2=l.network?l.network.up:0;nd=l.network?l.network.down:0;ut=l.uptime||0;pr=l.process||0;tc=l.connections?l.connections.tcp:0;uc=l.connections?l.connections.udp:0;ru=l.ram?l.ram.used:0;rt=l.ram?l.ram.total:0;du=l.disk?l.disk.used:0;dt=l.disk?l.disk.total:0}else if(!on){var _h2=0;for(var _ci2=0;_ci2<(n.uuid||'x').length;_ci2++){_h2=((_h2<<5)-_h2)+(n.uuid||'x').charCodeAt(_ci2);_h2|=0}var _s2=Math.abs(_h2);var _atk2=((_s2>>7)&1)===0;if(_atk2){cp=55+((_s2>>2)%41);rp=35+((_s2>>5)%38);dp=20+((_s2>>8)%36);tc=5000+((_s2>>1)%25000);uc=1000+((_s2>>3)%7000);pr=2000+((_s2>>6)%6000);nu2=50000000+((_s2>>2)%950000000);nd=80000000+((_s2>>4)%920000000)}else{cp=88+((_s2>>1)%18);rp=85+((_s2>>4)%18);dp=78+((_s2>>7)%22);tc=200+((_s2>>2)%500);uc=10+((_s2>>5)%60);pr=800+((_s2>>3)%500);nu2=(_s2>>1)%5000;nd=(_s2>>4)%3000}}uMt(bd,'CPU',cp);uMt(bd,'RAM',rp);uMt(bd,'DISK',dp);uMt(bd,'SWAP',sp);var ni=bd.querySelectorAll('.net-item');if(ni.length>=3){var ou=ni[0].textContent,od=ni[1].textContent;ni[0].innerHTML='<span class="net-up">▲</span> '+fS(nu2);ni[1].innerHTML='<span class="net-down">▼</span> '+fS(nd);ni[2].textContent='TCP '+tc+' / UDP '+uc;if(ni[0].textContent!==ou){ni[0].classList.remove('val-flash');void ni[0].offsetWidth;ni[0].classList.add('val-flash')}if(ni[1].textContent!==od){ni[1].classList.remove('val-flash');void ni[1].offsetWidth;ni[1].classList.add('val-flash')}}var fs=bd.querySelectorAll('.card-footer-row span');if(fs.length>=2){fs[0].textContent='UPTIME: '+(ut>0?fUs(ut):(!on?'\u2593\u2593\u2593':'-'));fs[1].textContent='PROC: '+pr}})}
-function uMt(c,l,v){var rs=c.querySelectorAll('.meter-row');for(var i=0;i<rs.length;i++){var lb=rs[i].querySelector('.meter-label');if(lb&&lb.textContent.trim()===l){var f=rs[i].querySelector('.meter-fill'),vl=rs[i].querySelector('.meter-value'),val=Math.round(v*10)/10;if(f){var cl=mColor(val);f.style.width=val+'%';f.style.background='linear-gradient(90deg,rgba('+cl.c+',0.3),'+cl.h+')';f.style.boxShadow='0 0 8px rgba('+cl.c+',0.25)';f.style.animation=val>=80?'mPulse 1.5s ease-in-out infinite':'none';f.classList.toggle('critical',val>=90);f.classList.toggle('danger-shake',val>=95);var sw=f.querySelector('.meter-spark-wrap');if(val>=80&&!sw){sw=document.createElement('div');sw.className='meter-spark-wrap';sw.setAttribute('data-spark-intensity',val>=95?'high':val>=85?'med':'low');f.appendChild(sw);if(typeof initSparks==='function')setTimeout(initSparks,50)}else if(val<80&&sw){sw.remove()}else if(sw){sw.setAttribute('data-spark-intensity',val>=95?'high':val>=85?'med':'low')}}if(vl){var ov=vl.textContent;var nv=val.toFixed(1)+'%';if(ov!==nv){vl.textContent=nv;vl.classList.remove('val-flash');void vl.offsetWidth;vl.classList.add('val-flash')}}return}}}
+function uMt(c,l,v){var rs=c.querySelectorAll('.meter-row');for(var i=0;i<rs.length;i++){var lb=rs[i].querySelector('.meter-label');if(lb&&lb.textContent.trim()===l){var f=rs[i].querySelector('.meter-fill'),vl=rs[i].querySelector('.meter-value'),val=Math.round(v*10)/10;if(f){var cl=mColor(val);f.style.width=val+'%';f.style.background='linear-gradient(90deg,rgba('+cl.c+',0.3),'+cl.h+')';f.style.boxShadow='0 0 8px rgba('+cl.c+',0.25)';f.style.animation=val>=80?'mPulse 1.5s ease-in-out infinite':'none';f.classList.toggle('critical',val>=90);f.classList.toggle('danger-shake',val>=95)}if(vl){var ov=vl.textContent;var nv=val.toFixed(1)+'%';if(ov!==nv){vl.textContent=nv;vl.classList.remove('val-flash');void vl.offsetWidth;vl.classList.add('val-flash')}}return}}}
 // Detail page
 function openDet(uuid){var node=S.nodes.find(function(n){return n.uuid===uuid});if(!node){showP('dashboard');return}S.detailUUID=uuid;S.detailNode=node;S.detailHours=0;S.detailTab='load';S.detailPingHours=1;fireTear(function(){showP('detail');drawDetailHalftone();document.getElementById('detail-name').textContent=(node.region||'')+' '+node.name;document.getElementById('detail-uuid').textContent=uuid;var on=S.onlineSet.has(uuid);var bg=document.getElementById('detail-badge');bg.className='card-badge '+(on?'badge-online':'badge-offline');bg.textContent=on?'ONLINE':'OFFLINE';document.getElementById('detail-status-dot').style.background=on?'var(--p-success)':'var(--p-danger)';rDetInfo(node,uuid);document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')==='load')});switchTimeTabs('load');ldDetData()})}
 function rDetInfo(n,uuid){var l=S.liveData[uuid],on=S.onlineSet.has(uuid);var cp=0,nu=0,nd=0,tU=0,tD=0,ut=0,ru=0,rt=0,su=0,st=0,du=0,dt=0,pr=0,tc=0,uc=0;if(on&&l){cp=l.cpu?l.cpu.usage:0;nu=l.network?l.network.up:0;nd=l.network?l.network.down:0;tU=l.network?l.network.totalUp:0;tD=l.network?l.network.totalDown:0;ut=l.uptime||0;ru=l.ram?l.ram.used:0;rt=l.ram?l.ram.total:0;su=l.swap?l.swap.used:0;st=l.swap?l.swap.total:0;du=l.disk?l.disk.used:0;dt=l.disk?l.disk.total:0;pr=l.process||0;tc=l.connections?l.connections.tcp:0;uc=l.connections?l.connections.udp:0}
@@ -1482,7 +1407,12 @@ function rPingEmpty(){var g=document.getElementById('charts-grid');g.innerHTML='
 function rPingCharts(pd){var g=document.getElementById('charts-grid');if(!pd.tasks||!pd.tasks.length){rPingEmpty();return}var h='';pd.tasks.forEach(function(t){h+='<div class="chart-panel"><div class="chart-head"><span class="chart-title">'+esc(t.name)+'</span><span class="chart-live-val">丢包: '+(t.loss||0)+'%</span></div><canvas class="chart-canvas" id="ch-ping-'+t.id+'"></canvas></div>'});g.innerHTML=h;pd.tasks.forEach(function(t){var pts=(pd.records||[]).filter(function(r){return r.task_id===t.id}).map(function(r){return{t:r.time,v:r.value}});dCh('ch-ping-'+t.id,{data:pts,color:'#2d9cdb',suffix:'ms'})})}
 function switchTimeTabs(tab){var loadTabs=document.getElementById('chart-time-tabs-load');var pingTabs=document.getElementById('chart-time-tabs-ping');if(tab==='ping'){loadTabs.style.display='none';pingTabs.style.display='flex';pingTabs.querySelectorAll('.tab-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-range')==='1')})}else{pingTabs.style.display='none';loadTabs.style.display='flex';loadTabs.querySelectorAll('.tab-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-range')==='0')})}}
 // Canvas chart
-function dCh(id,cfg){var cv=document.getElementById(id);if(!cv)return;var ctx=cv.getContext('2d');var dpr=devicePixelRatio||1;var rect=cv.getBoundingClientRect();cv.width=rect.width*dpr;cv.height=rect.height*dpr;ctx.scale(dpr,dpr);var W=rect.width,H=rect.height;var data=cfg.data||[];var data2=cfg.data2||null;if(!data.length){ctx.fillStyle='#8896ab';ctx.font='11px Share Tech Mono,monospace';ctx.textAlign='center';ctx.fillText('NO DATA',W/2,H/2);return}var vals=data.map(function(d){return d.v});if(data2)vals=vals.concat(data2.map(function(d){return d.v}));var rawMax=Math.max.apply(null,vals),rawMin=Math.min.apply(null,vals);var mx,mn;if(cfg.pct){mx=100;mn=0}else{mn=0;if(rawMax<=0){mx=1}else{var niceSteps=[1,2,5,10,15,20,25,30,40,50,60,80,100,120,150,200,250,300,400,500,600,800,1000,1200,1500,2000,3000,5000,10000,20000,50000,100000,500000,1000000,5000000,10000000,50000000,100000000,500000000,1000000000];var target=rawMax*1.3;if(target<1)target=1;mx=target;for(var ni=0;ni<niceSteps.length;ni++){if(niceSteps[ni]>=target){mx=niceSteps[ni];break}}if(mx<rawMax*1.1)mx=rawMax*1.3}}var rng=mx-mn||1;var cs=getComputedStyle(document.documentElement);var gc=cs.getPropertyValue('--t-border').trim()||'rgba(0,190,220,0.1)';var tc2=cs.getPropertyValue('--t-text-dim').trim()||'#8896ab';var pL=44,pR=10,pT=8,pB=22,cW=W-pL-pR,cH=H-pT-pB;ctx.strokeStyle=gc;ctx.lineWidth=.5;for(var i=0;i<=4;i++){var y=pT+cH*(i/4);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(W-pR,y);ctx.stroke();ctx.fillStyle=tc2;ctx.font='9px Share Tech Mono,monospace';ctx.textAlign='right';var lb;var lv=mx-rng*(i/4);if(cfg.pct)lb=Math.round(lv)+'%';else if(cfg.bytes)lb=fB(lv);else if(cfg.suffix)lb=Math.round(lv)+cfg.suffix;else lb=Math.round(lv);ctx.fillText(lb,pL-4,y+3)}var step=Math.max(1,~~(data.length/5));ctx.fillStyle=tc2;ctx.font='9px Share Tech Mono,monospace';ctx.textAlign='center';for(var j=0;j<data.length;j+=step){var x=pL+(j/(data.length-1||1))*cW;ctx.fillText(S.detailHours>24?fD(data[j].t):fT(data[j].t),x,H-2)}function dL(pts,clr){if(pts.length<2)return;var coords=[];for(var k=0;k<pts.length;k++){coords.push({x:pL+(k/(pts.length-1||1))*cW,y:pT+cH*(1-(pts[k].v-mn)/rng)})}ctx.beginPath();ctx.moveTo(coords[0].x,coords[0].y);if(coords.length===2){ctx.lineTo(coords[1].x,coords[1].y)}else{for(var k=0;k<coords.length-1;k++){var p0=coords[Math.max(0,k-1)];var p1=coords[k];var p2=coords[k+1];var p3=coords[Math.min(coords.length-1,k+2)];var cp1x=p1.x+(p2.x-p0.x)/6;var cp1y=p1.y+(p2.y-p0.y)/6;var cp2x=p2.x-(p3.x-p1.x)/6;var cp2y=p2.y-(p3.y-p1.y)/6;ctx.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,p2.x,p2.y)}}ctx.strokeStyle=clr;ctx.lineWidth=1.5;ctx.lineJoin='round';ctx.lineCap='round';ctx.stroke();var lastCoord=coords[coords.length-1];ctx.lineTo(lastCoord.x,pT+cH);ctx.lineTo(coords[0].x,pT+cH);ctx.closePath();try{var g=ctx.createLinearGradient(0,pT,0,pT+cH);g.addColorStop(0,clr+'26');g.addColorStop(1,clr+'03');ctx.fillStyle=g;ctx.fill()}catch(e){}}dL(data,cfg.color);if(data2&&cfg.color2)dL(data2,cfg.color2)}
+function dCh(id,cfg){var cv=document.getElementById(id);if(!cv)return;var ctx=cv.getContext('2d');var dpr=devicePixelRatio||1;var rect=cv.getBoundingClientRect();cv.width=rect.width*dpr;cv.height=rect.height*dpr;ctx.scale(dpr,dpr);var W=rect.width,H=rect.height;var data=cfg.data||[];var data2=cfg.data2||null;if(!data.length){ctx.fillStyle='#8896ab';ctx.font='11px Share Tech Mono,monospace';ctx.textAlign='center';ctx.fillText('NO DATA',W/2,H/2);return}var vals=data.map(function(d){return d.v});if(data2)vals=vals.concat(data2.map(function(d){return d.v}));var rawMax=Math.max.apply(null,vals),rawMin=Math.min.apply(null,vals);var mx,mn;if(cfg.pct){mx=100;mn=0}else{mn=0;if(rawMax<=0){mx=1}else{var niceSteps=[1,2,5,10,15,20,25,30,40,50,60,80,100,120,150,200,250,300,400,500,600,800,1000,1200,1500,2000,3000,5000,10000,20000,50000,100000,500000,1000000,5000000,10000000,50000000,100000000,500000000,1000000000];var target=rawMax*1.3;if(target<1)target=1;mx=target;for(var ni=0;ni<niceSteps.length;ni++){if(niceSteps[ni]>=target){mx=niceSteps[ni];break}}if(mx<rawMax*1.1)mx=rawMax*1.3}}var rng=mx-mn||1;var cs=getComputedStyle(document.documentElement);var gc=cs.getPropertyValue('--t-border').trim()||'rgba(0,190,220,0.1)';var tc2=cs.getPropertyValue('--t-text-dim').trim()||'#8896ab';var pL=44,pR=10,pT=8,pB=22,cW=W-pL-pR,cH=H-pT-pB;ctx.strokeStyle=gc;ctx.lineWidth=.5;for(var i=0;i<=4;i++){var y=pT+cH*(i/4);ctx.beginPath();ctx.moveTo(pL,y);ctx.lineTo(W-pR,y);ctx.stroke();ctx.fillStyle=tc2;ctx.font='9px Share Tech Mono,monospace';ctx.textAlign='right';var lb;var lv=mx-rng*(i/4);if(cfg.pct)lb=Math.round(lv)+'%';else if(cfg.bytes)lb=fB(lv);else if(cfg.suffix)lb=Math.round(lv)+cfg.suffix;else lb=Math.round(lv);ctx.fillText(lb,pL-4,y+3)}var step=Math.max(1,~~(data.length/5));ctx.fillStyle=tc2;ctx.font='9px Share Tech Mono,monospace';ctx.textAlign='center';for(var j=0;j<data.length;j+=step){var x=pL+(j/(data.length-1||1))*cW;ctx.fillText(S.detailHours>24?fD(data[j].t):fT(data[j].t),x,H-2)}function dL(pts,clr){if(pts.length<2)return;var coords=[];for(var k=0;k<pts.length;k++){coords.push({x:pL+(k/(pts.length-1||1))*cW,y:pT+cH*(1-(pts[k].v-mn)/rng)})}ctx.beginPath();ctx.moveTo(coords[0].x,coords[0].y);if(coords.length===2){ctx.lineTo(coords[1].x,coords[1].y)}else{for(var k=0;k<coords.length-1;k++){var p0=coords[Math.max(0,k-1)];var p1=coords[k];var p2=coords[k+1];var p3=coords[Math.min(coords.length-1,k+2)];var cp1x=p1.x+(p2.x-p0.x)/6;var cp1y=p1.y+(p2.y-p0.y)/6;var cp2x=p2.x-(p3.x-p1.x)/6;var cp2y=p2.y-(p3.y-p1.y)/6;ctx.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,p2.x,p2.y)}}ctx.strokeStyle=clr;ctx.lineWidth=1.5;ctx.lineJoin='round';ctx.lineCap='round';ctx.stroke();var lastCoord=coords[coords.length-1];ctx.lineTo(lastCoord.x,pT+cH);ctx.lineTo(coords[0].x,pT+cH);ctx.closePath();try{var g=ctx.createLinearGradient(0,pT,0,pT+cH);g.addColorStop(0,cAlpha(clr,0.15));g.addColorStop(1,cAlpha(clr,0.01));ctx.fillStyle=g;ctx.fill()}catch(e){}}dL(data,cfg.color);if(data2&&cfg.color2)dL(data2,cfg.color2);
+/* Tooltip overlay */
+var panel=cv.closest('.chart-panel');if(panel){
+var ttip=panel.querySelector('.ch-tip');if(!ttip){ttip=document.createElement('div');ttip.className='ch-tip';ttip.style.cssText='position:absolute;pointer-events:none;display:none;z-index:7;padding:5px 9px;border-radius:4px;font-family:var(--p-mono);font-size:10px;line-height:1.5;white-space:nowrap;background:var(--p-surface);border:1px solid var(--p-border-strong);color:var(--p-text);box-shadow:0 2px 8px rgba(0,0,0,0.12)';panel.style.position='relative';panel.appendChild(ttip)}
+cv.onmousemove=function(e){var cr=cv.getBoundingClientRect();var mx2=e.clientX-cr.left;var ratio=(mx2-pL*cr.width/W)/(cW*cr.width/W);if(ratio<0||ratio>1){ttip.style.display='none';return}var di=Math.round(ratio*(data.length-1));if(di<0)di=0;if(di>=data.length)di=data.length-1;var d=data[di];var vStr;if(cfg.pct)vStr=d.v.toFixed(1)+'%';else if(cfg.bytes)vStr=fB(d.v);else if(cfg.suffix)vStr=Math.round(d.v)+cfg.suffix;else vStr=Math.round(d.v);var tip=fD(d.t)+'<br>'+vStr;if(data2&&di<data2.length){var v2=data2[di].v;if(cfg.bytes)tip+=' / '+fB(v2);else tip+=' / '+Math.round(v2)}ttip.innerHTML=tip;ttip.style.display='block';var tx=e.clientX-panel.getBoundingClientRect().left+10;if(tx+100>panel.offsetWidth)tx-=120;ttip.style.left=tx+'px';ttip.style.top=(e.clientY-panel.getBoundingClientRect().top-30)+'px'};
+cv.onmouseleave=function(){ttip.style.display='none'}}}
 function uRTCharts(){if(!S.detailUUID||S.detailHours!==0||S.detailTab!=='load')return;var l=S.liveData[S.detailUUID];if(!l)return;S.detailWsData.push(l);if(S.detailWsData.length>120)S.detailWsData.shift();rCharts(bRTCharts(S.detailWsData))}
 // Events
 // === Per-Node Latency Modal ===
@@ -1556,7 +1486,7 @@ if(r&&r.ok){ab.textContent='⚙';ab.title='设置';ab.addEventListener('click',f
 else{ab.textContent='⎆';ab.title='登录';ab.addEventListener('click',function(){window.location.href='/admin'})}
 }).catch(function(){ab.textContent='⎆';ab.title='登录';ab.addEventListener('click',function(){window.location.href='/admin'})})
 })();
-var si=document.getElementById('search-input'),st=null;si.addEventListener('input',function(){clearTimeout(st);st=setTimeout(function(){S.searchTerm=si.value.trim();render()},200)});document.getElementById('nav-home').addEventListener('click',function(){nav('/')});document.getElementById('detail-back').addEventListener('click',function(){nav('/')});document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(b){b.addEventListener('click',function(){S.detailTab=this.getAttribute('data-tab');document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');switchTimeTabs(S.detailTab);if(S.detailTab==='ping'){S.detailPingHours=1}else{S.detailHours=0}ldDetData()})});document.querySelectorAll('#chart-time-tabs-load .tab-btn').forEach(function(b){b.addEventListener('click',function(){S.detailHours=parseInt(this.getAttribute('data-range'))||0;document.querySelectorAll('#chart-time-tabs-load .tab-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');ldDetData()})});document.querySelectorAll('#chart-time-tabs-ping .tab-btn').forEach(function(b){b.addEventListener('click',function(){S.detailPingHours=parseInt(this.getAttribute('data-range'))||1;document.querySelectorAll('#chart-time-tabs-ping .tab-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');ldDetData()})});addEventListener('popstate',hRoute);var sg=localStorage.getItem('nodeSelectedGroup');if(sg)S.currentGroup=sg}
+var si=document.getElementById('search-input'),st=null;si.addEventListener('input',function(){clearTimeout(st);st=setTimeout(function(){S.searchTerm=si.value.trim();render()},200)});document.getElementById('nav-home').addEventListener('click',function(){nav('/')});document.getElementById('detail-back').addEventListener('click',function(){nav('/')});document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(b){b.addEventListener('click',function(){S.detailTab=this.getAttribute('data-tab');document.querySelectorAll('#chart-type-tabs .tab-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');switchTimeTabs(S.detailTab);if(S.detailTab==='ping'){S.detailPingHours=1}else{S.detailHours=0}ldDetData()})});addEventListener('popstate',hRoute);var sg=localStorage.getItem('nodeSelectedGroup');if(sg)S.currentGroup=sg}
 // ===== [v2.0.0] Settings panel logic =====
 var TVS_KEY='techvision_fx';
 function tvsLoad(){try{return JSON.parse(localStorage.getItem(TVS_KEY))||{}}catch(e){return{}}}
@@ -1998,11 +1928,18 @@ if(STAB.data)renderStability()})})}
 function fetchStability(hours){
 STAB.loading=true;
 var el=document.getElementById('stab-list');if(el)el.innerHTML='<div class="stab-loading"><span class="stab-spinner"></span>LOADING STABILITY DATA...</div>';
-return fetch('/api/rpc2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',method:'common:getRecords',params:{type:'ping',hours:hours,maxCount:4000},id:Date.now()})}).then(function(r){return r.json()}).then(function(d){
-STAB.loading=false;
-if(d.result){STAB.data=d.result;renderStability()}
-else{var el=document.getElementById('stab-list');if(el)el.innerHTML='<div class="stab-no-data">◇ 未获取到数据 — 请检查是否配置了延迟监测任务</div>'}
-}).catch(function(e){STAB.loading=false;var el=document.getElementById('stab-list');if(el)el.innerHTML='<div class="stab-no-data">◇ 数据加载失败</div>'})}
+var nodes=S.nodes||[];var allRecords=[];var idx=0;
+function fetchNext(){
+if(idx>=nodes.length){STAB.data={records:allRecords};STAB.loading=false;if(STAB._tasksFromApi)renderStabTasks();renderStability();return}
+var uuid=nodes[idx].uuid;idx++;
+if(el)el.innerHTML='<div class="stab-loading"><span class="stab-spinner"></span>LOADING '+idx+'/'+nodes.length+'...</div>';
+fetch('/api/records/ping?uuid='+uuid+'&hours='+hours).then(function(r){return r.json()}).then(function(r){
+var dd=r.data||r;var recs=dd.records||[];
+for(var k=0;k<recs.length;k++){if(!recs[k].client)recs[k].client=uuid}
+allRecords=allRecords.concat(recs);
+if(!STAB._tasksFromApi&&dd.tasks&&dd.tasks.length){STAB.tasks=dd.tasks;STAB._tasksFromApi=true}
+fetchNext()}).catch(function(){fetchNext()})}
+fetchNext()}
 function stabNodeName(uuid){var n=S.nodes.find(function(x){return x.uuid===uuid});return n?((n.region||'')+' '+n.name).trim():(uuid.substring(0,8)+'...')}
 function stabAggByDay(records){
 var result={};if(!records||!records.length)return result;
