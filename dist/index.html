@@ -838,10 +838,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
   <div id="deco-lines"></div>
   <div id="connector-lines"></div>
   <!-- PRTS Screen Corner HUD -->
-  <div class="screen-hud-corner shc-tl"><div class="shc-frame-h"></div><div class="shc-frame-v"></div><div class="shc-text"><span class="shc-dot"></span>PRTS//LINK</div></div>
-  <div class="screen-hud-corner shc-tr"><div class="shc-frame-h"></div><div class="shc-frame-v"></div><div class="shc-text">SYS:NOMINAL<span class="shc-dot" style="margin-left:3px;margin-right:0"></span></div></div>
-  <div class="screen-hud-corner shc-bl"><div class="shc-frame-h"></div><div class="shc-frame-v"></div><div class="shc-text"><span class="shc-dot"></span>SEC:AES-256</div></div>
-  <div class="screen-hud-corner shc-br"><div class="shc-frame-h"></div><div class="shc-frame-v"></div><div class="shc-text">MONITOR:ACTIVE<span class="shc-dot" style="margin-left:3px;margin-right:0"></span></div></div>
   <div id="hex-pattern"></div>
   <div id="ambient-glow"></div>
   
@@ -872,7 +868,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
       <div id="tech-clock" style="color:var(--p-accent);font-weight:500"></div>
     </div>
     <div id="tech-quota-bar"><span>QUOTA</span><div class="quota-track"><div class="quota-fill" id="quota-fill"></div></div><span id="quota-status">AWAITING DATA</span></div>
-    <nav id="tech-nav"><div class="nav-accent-bar"></div><div class="nav-deco-right"></div><div class="nav-light-sweep"></div>
+    <nav id="tech-nav">
       <div class="nav-brand" id="nav-home"><span class="nav-title">KOMARI</span><span class="nav-subtitle">Monitor</span><div class="nav-hud-left"><div class="hud-ring"><svg width="48" height="48" viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="rgba(0,184,212,0.15)" stroke-width="1.5"/><circle cx="24" cy="24" r="20" fill="none" stroke="var(--p-accent)" stroke-width="1.5" stroke-dasharray="40 86" stroke-linecap="round" class="hud-ring-arc"/><circle cx="24" cy="24" r="14" fill="none" stroke="rgba(0,184,212,0.1)" stroke-width="1"/><circle cx="24" cy="24" r="3" fill="var(--p-accent)" opacity="0.6"/></svg></div><div class="hud-left-text"><div class="hud-label">SYS.VER</div><div class="hud-val" id="hud-ver">v1.0.0</div><div class="hud-label" style="margin-top:4px">UPTIME</div><div class="hud-val" id="hud-uptime">--:--:--</div></div></div></div>
       <div class="nav-controls"><div class="nav-hud-right"><div class="hud-bars"><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-cpu-bar"></div></div><span class="hud-bar-label">CPU</span></div><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-mem-bar"></div></div><span class="hud-bar-label">MEM</span></div><div class="hud-bar-item"><div class="hud-bar-track"><div class="hud-bar-fill" id="hud-net-bar"></div></div><span class="hud-bar-label">NET</span></div></div><div class="hud-right-text"><div class="hud-label">NODES</div><div class="hud-val" id="hud-nodes">--/--</div></div></div><input type="text" class="nav-search" id="search-input" placeholder="搜索: 名称/分组/标签/系统..."><button class="nav-btn" id="btn-theme" title="切换主题">◐</button><button class="nav-btn" id="btn-auth" title="登录">⎆</button></div>
     </nav>
