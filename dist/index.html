@@ -876,35 +876,45 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 #visitor-alert-overlay{position:fixed;bottom:20px;right:20px;z-index:200000;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s cubic-bezier(.16,1,.3,1);pointer-events:none}
 #visitor-alert-overlay.va-show{opacity:1;transform:translateY(0);pointer-events:auto}
 #visitor-alert-overlay.va-hide{opacity:0;transform:translateY(24px);pointer-events:none}
-.va-box{width:340px;position:relative;overflow:hidden;background:var(--p-surface);border:1px solid var(--p-border-strong);box-shadow:0 16px 48px rgba(0,0,0,.2)}
+.va-box{width:380px;position:relative;overflow:hidden;background:var(--p-surface);border:1px solid var(--p-border-strong);box-shadow:0 16px 48px rgba(0,0,0,.2)}
 .va-box::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
-.va-box.va-level-safe::before{background:var(--p-accent)}
-.va-box.va-level-proxy::before{background:var(--p-warn)}
-.va-box.va-level-threat::before{background:var(--p-danger)}
-.va-top{padding:14px 16px 0 18px;display:flex;align-items:center;justify-content:space-between}
-.va-tag{font-family:var(--p-mono);font-size:9px;letter-spacing:2.5px;font-weight:700;display:flex;align-items:center;gap:7px}
-.va-tag-dot{width:6px;height:6px;border-radius:50%;animation:vaPulse 1.5s ease-in-out infinite}
-@keyframes vaPulse{0%,100%{opacity:1}50%{opacity:.35}}
-.va-box.va-level-safe .va-tag{color:var(--p-accent)}.va-box.va-level-safe .va-tag-dot{background:var(--p-accent);box-shadow:0 0 8px rgba(var(--p-accent-rgb),.5)}
-.va-box.va-level-proxy .va-tag{color:var(--p-warn)}.va-box.va-level-proxy .va-tag-dot{background:var(--p-warn);box-shadow:0 0 8px rgba(var(--p-warn-rgb),.5)}
-.va-box.va-level-threat .va-tag{color:var(--p-danger)}.va-box.va-level-threat .va-tag-dot{background:var(--p-danger);box-shadow:0 0 8px rgba(var(--p-danger-rgb),.5)}
-.va-close{background:transparent;border:1px solid var(--p-border-strong);color:var(--p-text-dim);font-family:var(--p-mono);font-size:8px;padding:2px 7px;cursor:pointer;transition:all .2s;letter-spacing:1px}
+.va-box.lv-safe::before{background:var(--p-accent)}.va-box.lv-warn::before{background:var(--p-warn)}.va-box.lv-alert::before{background:var(--p-danger)}
+.va-hd{padding:14px 16px 0 18px;display:flex;align-items:start;justify-content:space-between}
+.va-hd-left{display:flex;flex-direction:column;gap:2px}
+.va-hd-sec{font-family:var(--p-mono);font-size:8px;letter-spacing:3px;color:var(--p-text-dim)}
+.va-hd-title{font-family:var(--p-mono);font-size:14px;font-weight:700;letter-spacing:2px;display:flex;align-items:center;gap:7px}
+.va-hd-dot{width:7px;height:7px;border-radius:50%;animation:vaPulse 1.5s ease-in-out infinite}
+@keyframes vaPulse{0%,100%{opacity:1}50%{opacity:.3}}
+.lv-safe .va-hd-title{color:var(--p-accent)}.lv-safe .va-hd-dot{background:var(--p-accent);box-shadow:0 0 8px rgba(var(--p-accent-rgb),.5)}
+.lv-warn .va-hd-title{color:var(--p-warn)}.lv-warn .va-hd-dot{background:var(--p-warn);box-shadow:0 0 8px rgba(var(--p-warn-rgb),.5)}
+.lv-alert .va-hd-title{color:var(--p-danger)}.lv-alert .va-hd-dot{background:var(--p-danger);box-shadow:0 0 8px rgba(var(--p-danger-rgb),.5)}
+.va-hd-sub{font-family:var(--p-sans);font-size:11px;color:var(--p-text-dim);margin-top:1px}
+.va-hd-badge{font-family:var(--p-mono);font-size:8px;letter-spacing:2px;padding:3px 8px;border:1px solid;font-weight:700;white-space:nowrap;margin-top:2px}
+.lv-safe .va-hd-badge{color:var(--p-accent);border-color:rgba(var(--p-accent-rgb),.3);display:none}
+.lv-warn .va-hd-badge{color:var(--p-warn);border-color:rgba(var(--p-warn-rgb),.3)}
+.lv-alert .va-hd-badge{color:var(--p-danger);border-color:rgba(var(--p-danger-rgb),.3)}
+.va-row-ip{display:flex;align-items:start;justify-content:space-between;padding:12px 16px 0 18px;gap:8px}
+.va-ip-left{display:flex;flex-direction:column}
+.va-ip-k{font-family:var(--p-mono);font-size:7px;letter-spacing:2.5px;color:var(--p-text-dim);text-transform:uppercase}
+.va-ip-v{font-family:var(--p-mono);font-size:24px;font-weight:700;color:var(--p-text);letter-spacing:1px;line-height:1.1;margin-top:2px}
+.va-state{text-align:right}
+.va-state-k{font-family:var(--p-mono);font-size:7px;letter-spacing:2.5px;color:var(--p-text-dim)}
+.va-state-v{font-family:var(--p-mono);font-size:11px;font-weight:700;letter-spacing:1.5px;margin-top:2px;line-height:1.3}
+.va-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;padding:12px 16px 0 18px}
+.va-f{display:flex;flex-direction:column;gap:1px}
+.va-f-k{font-family:var(--p-mono);font-size:7px;letter-spacing:2px;color:var(--p-text-dim)}
+.va-f-v{font-family:var(--p-sans);font-size:12px;font-weight:600;color:var(--p-text-secondary);line-height:1.2}
+.va-bot{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 0 18px}
+.va-bot-l{display:flex;flex-direction:column;gap:1px}
+.va-bot-r{display:flex;flex-direction:column;gap:1px;text-align:right}
+.va-dismiss{display:flex;align-items:center;justify-content:space-between;padding:8px 16px 6px 18px;font-family:var(--p-mono);font-size:8px;letter-spacing:2px;color:var(--p-text-dim)}
+.va-bar{height:3px;background:var(--p-border);overflow:hidden}
+.va-bar-fill{height:100%;transition:width .3s linear}
+.lv-safe .va-bar-fill{background:var(--p-accent)}.lv-warn .va-bar-fill{background:var(--p-warn)}.lv-alert .va-bar-fill{background:var(--p-danger)}
+.va-close{background:transparent;border:1px solid var(--p-border-strong);color:var(--p-text-dim);font-family:var(--p-mono);font-size:8px;padding:2px 7px;cursor:pointer;transition:.2s;letter-spacing:1px;position:absolute;top:10px;right:10px}
 .va-close:hover{color:var(--p-danger);border-color:rgba(var(--p-danger-rgb),.3)}
-.va-ip{font-family:var(--p-mono);font-size:22px;font-weight:700;color:var(--p-text);padding:10px 16px 0 18px;letter-spacing:1px;line-height:1}
-.va-loc{font-family:var(--p-sans);font-size:13px;font-weight:600;color:var(--p-text-secondary);padding:4px 16px 0 18px}
-.va-isp{font-family:var(--p-mono);font-size:10px;color:var(--p-text-dim);padding:2px 16px 0 18px;letter-spacing:.5px}
-.va-meta{display:flex;gap:12px;padding:12px 16px 0 18px;flex-wrap:wrap}
-.va-meta-item{display:flex;flex-direction:column;gap:1px}
-.va-meta-k{font-family:var(--p-mono);font-size:7px;letter-spacing:2px;color:var(--p-text-dim);text-transform:uppercase}
-.va-meta-v{font-family:var(--p-mono);font-size:11px;font-weight:600}
-.va-status{font-family:var(--p-mono);font-size:9px;letter-spacing:2.5px;padding:10px 16px 8px 18px;opacity:.5}
-.va-bar{height:2px;background:var(--p-border);margin:0;position:relative;overflow:hidden}
-.va-bar-fill{position:absolute;left:0;top:0;height:100%;transition:width .3s linear}
-.va-box.va-level-safe .va-bar-fill{background:var(--p-accent)}
-.va-box.va-level-proxy .va-bar-fill{background:var(--p-warn)}
-.va-box.va-level-threat .va-bar-fill{background:var(--p-danger)}
-.va-fade-in{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}.va-fade-in.va-show-el{opacity:1;transform:translateY(0)}
-@media(max-width:600px){.va-box{width:calc(100vw - 24px)}.va-ip{font-size:18px}#visitor-alert-overlay{bottom:12px;right:12px}}
+.va-fi{opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}.va-fi.va-vis{opacity:1;transform:translateY(0)}
+@media(max-width:600px){.va-box{width:calc(100vw - 24px)}.va-ip-v{font-size:18px}#visitor-alert-overlay{bottom:12px;right:12px}.va-fields{grid-template-columns:1fr}}
 
 </style>
 </head>
@@ -912,16 +922,29 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;bac
 
   <!-- Visitor Alert — Terminal Event Card -->
   <div id="visitor-alert-overlay">
-    <div class="va-box va-level-safe" id="va-box">
-      <div class="va-top">
-        <span class="va-tag"><span class="va-tag-dot"></span><span id="va-tag-text">NEW CONNECTION</span></span>
-        <button class="va-close" id="va-close">✕</button>
+    <div class="va-box lv-safe" id="va-box">
+      <button class="va-close" id="va-close">✕</button>
+      <div class="va-hd va-fi">
+        <div class="va-hd-left">
+          <div class="va-hd-sec">EXTERNAL EVENT FEED</div>
+          <div class="va-hd-title"><span class="va-hd-dot"></span><span id="va-tag">NEW CONNECTION</span></div>
+          <div class="va-hd-sub" id="va-sub">新连接已建立</div>
+        </div>
+        <span class="va-hd-badge" id="va-badge">WARN</span>
       </div>
-      <div class="va-ip va-fade-in" id="va-ip">--</div>
-      <div class="va-loc va-fade-in" id="va-loc">--</div>
-      <div class="va-isp va-fade-in" id="va-isp">--</div>
-      <div class="va-meta va-fade-in" id="va-meta"></div>
-      <div class="va-status va-fade-in" id="va-status">SIGNAL LOCKED</div>
+      <div class="va-row-ip va-fi">
+        <div class="va-ip-left">
+          <span class="va-ip-k">SOURCE ADDRESS</span>
+          <span class="va-ip-v" id="va-ip">--</span>
+        </div>
+        <div class="va-state">
+          <span class="va-state-k">STATE</span>
+          <div class="va-state-v" id="va-state">SIGNAL LOCKED</div>
+        </div>
+      </div>
+      <div class="va-fields va-fi" id="va-fields"></div>
+      <div class="va-bot va-fi" id="va-bot"></div>
+      <div class="va-dismiss"><span>AUTO DISMISS</span><span id="va-countdown">10S</span></div>
       <div class="va-bar"><div class="va-bar-fill" id="va-bar-fill"></div></div>
     </div>
   </div>
@@ -2150,11 +2173,9 @@ function initVisitorAlert(){
   sessionStorage.setItem('va_shown','1');
   var overlay=document.getElementById('visitor-alert-overlay');
   var box=document.getElementById('va-box');
-  var barFill=document.getElementById('va-bar-fill');
-  var closeBtn=document.getElementById('va-close');
   if(!overlay||!box)return;
-  fetchIPData().then(function(d){renderVA(overlay,box,barFill,closeBtn,d)}).catch(function(){
-    renderVA(overlay,box,barFill,closeBtn,{ip:'UNKNOWN',city:'',country:'',isp:'',risk:0,proxy:'no'});
+  fetchIPData().then(function(d){renderVA(overlay,box,d)}).catch(function(){
+    renderVA(overlay,box,{ip:'UNKNOWN',city:'',country:'',isp:'',risk:0,proxy:'no'});
   });
 }
 
@@ -2176,49 +2197,47 @@ function fetchIPData(){
   });
 }
 
-function renderVA(overlay,box,barFill,closeBtn,d){
-  // Determine threat level
-  var level='safe';var tagText='NEW CONNECTION';var statusText='SIGNAL LOCKED';
-  if(d.risk>50){level='threat';tagText='THREAT DETECTED';statusText='HIGH RISK \u00b7 MONITORING'}
-  else if(d.risk>20||d.proxy==='yes'){level='proxy';tagText=d.proxy==='yes'?'PROXY DETECTED':'ELEVATED RISK';statusText='PROXY LINK \u00b7 FLAGGED'}
-
-  box.className='va-box va-level-'+level;
-  document.getElementById('va-tag-text').textContent=tagText;
+function renderVA(overlay,box,d){
+  var lv='safe';var tag='NEW CONNECTION';var sub='\u65b0\u8fde\u63a5\u5df2\u5efa\u7acb';var badge='INFO';var stateV='SIGNAL LOCKED';
+  if(d.risk>50){lv='alert';tag='THREAT DETECTED';sub='\u68c0\u6d4b\u5230\u9ad8\u98ce\u9669\u8fde\u63a5';badge='ALERT';stateV='HIGH RISK \u00b7\nMONITORING'}
+  else if(d.risk>20||d.proxy==='yes'){lv='warn';tag=d.proxy==='yes'?'PROXY DETECTED':'ELEVATED RISK';sub=d.proxy==='yes'?'\u68c0\u6d4b\u5230\u4ee3\u7406\u8fde\u63a5':'\u68c0\u6d4b\u5230\u5f02\u5e38\u8def\u7531';badge='WARN';stateV='PROXY LINK \u00b7\nFLAGGED'}
+  box.className='va-box lv-'+lv;
+  document.getElementById('va-tag').textContent=tag;
+  document.getElementById('va-sub').textContent=sub;
+  document.getElementById('va-badge').textContent=badge;
   document.getElementById('va-ip').textContent=d.ip||'--';
-  var loc=[d.city,d.region,d.country].filter(Boolean).join(', ');
-  document.getElementById('va-loc').textContent=loc||'LOCATION UNKNOWN';
-  document.getElementById('va-isp').textContent=(d.isp||'UNKNOWN ISP').substring(0,42);
-  document.getElementById('va-status').textContent=statusText;
+  document.getElementById('va-state').innerHTML=stateV.replace('\n','<br>');
 
-  // Meta items
-  var metaEl=document.getElementById('va-meta');var mh='';
-  if(d.lat&&d.lon)mh+='<div class="va-meta-item"><span class="va-meta-k">COORD</span><span class="va-meta-v" style="color:var(--p-text-secondary)">'+Number(d.lat).toFixed(2)+'\u00b0 / '+Number(d.lon).toFixed(2)+'\u00b0</span></div>';
-  var riskCol=level==='threat'?'var(--p-danger)':level==='proxy'?'var(--p-warn)':'var(--p-success)';
+  var loc=[d.city,d.country].filter(Boolean).join(', ');
+  var fh='';
+  fh+='<div class="va-f"><span class="va-f-k">\u533a\u57df</span><span class="va-f-v">'+(loc||'Unknown')+'</span></div>';
+  if(d.lat&&d.lon)fh+='<div class="va-f"><span class="va-f-k">\u5750\u6807</span><span class="va-f-v">'+Number(d.lat).toFixed(3)+' / '+Number(d.lon).toFixed(3)+'</span></div>';
+  else fh+='<div class="va-f"><span class="va-f-k">\u5750\u6807</span><span class="va-f-v">--</span></div>';
+  fh+='<div class="va-f"><span class="va-f-k">\u8fd0\u8425\u5546</span><span class="va-f-v">'+(d.isp||'Unknown').substring(0,30)+'</span></div>';
+  document.getElementById('va-fields').innerHTML=fh;
+
   var riskTxt=d.risk>50?'HIGH':d.risk>20?'MEDIUM':'LOW';
-  mh+='<div class="va-meta-item"><span class="va-meta-k">RISK</span><span class="va-meta-v" style="color:'+riskCol+'">'+riskTxt+'</span></div>';
-  if(d.proxy==='yes')mh+='<div class="va-meta-item"><span class="va-meta-k">TYPE</span><span class="va-meta-v" style="color:var(--p-warn)">VPN/PROXY</span></div>';
-  else mh+='<div class="va-meta-item"><span class="va-meta-k">TYPE</span><span class="va-meta-v" style="color:var(--p-text-secondary)">DIRECT</span></div>';
-  metaEl.innerHTML=mh;
+  var riskCol=lv==='alert'?'var(--p-danger)':lv==='warn'?'var(--p-warn)':'var(--p-success)';
+  var typeTxt=d.proxy==='yes'?'VPN / PROXY':'DIRECT';
+  var typeCol=d.proxy==='yes'?'var(--p-warn)':'var(--p-text-secondary)';
+  var bh='<div class="va-bot-l"><span class="va-f-k">\u72b6\u6001 / \u7c7b\u578b</span><span class="va-f-v">'+stateV.split('\n')[0]+'</span></div>';
+  bh+='<div class="va-bot-r"><span class="va-f-k">\u98ce\u9669 / \u7c7b\u578b</span><span class="va-f-v" style="color:'+riskCol+'">'+riskTxt+' / <span style="color:'+typeCol+'">'+typeTxt+'</span></span></div>';
+  document.getElementById('va-bot').innerHTML=bh;
 
-  // Show
   overlay.classList.add('va-show');
+  var fades=box.querySelectorAll('.va-fi');
+  for(var i=0;i<fades.length;i++){(function(el,dl){setTimeout(function(){el.classList.add('va-vis')},dl)})(fades[i],200+i*250)}
 
-  // Staggered fade-in for content elements
-  var fadeEls=box.querySelectorAll('.va-fade-in');
-  for(var i=0;i<fadeEls.length;i++){
-    (function(el,delay){setTimeout(function(){el.classList.add('va-show-el')},delay)})(fadeEls[i],300+i*200);
-  }
-
-  // Countdown bar
+  var barFill=document.getElementById('va-bar-fill');
+  var cdEl=document.getElementById('va-countdown');
   var duration=10000;var startT=Date.now();var barRAF;
-  function tickBar(){var elapsed=Date.now()-startT;var pct=Math.min(100,elapsed/duration*100);if(barFill)barFill.style.width=pct+'%';if(pct>=100){doClose();return}barRAF=requestAnimationFrame(tickBar)}
-  barRAF=requestAnimationFrame(tickBar);
+  function tick(){var el=Date.now()-startT;var pct=Math.min(100,el/duration*100);if(barFill)barFill.style.width=pct+'%';var remain=Math.max(0,Math.ceil((duration-el)/1000));if(cdEl)cdEl.textContent=remain+'S';if(pct>=100){doClose();return}barRAF=requestAnimationFrame(tick)}
+  barRAF=requestAnimationFrame(tick);
 
   function doClose(){if(barRAF)cancelAnimationFrame(barRAF);overlay.classList.remove('va-show');overlay.classList.add('va-hide');setTimeout(function(){overlay.remove()},500)}
-  closeBtn.addEventListener('click',doClose);
+  document.getElementById('va-close').addEventListener('click',doClose);
   overlay.addEventListener('click',function(e){if(e.target===overlay)doClose()});
-  var escH=function(e){if(e.key==='Escape')doClose();document.removeEventListener('keydown',escH)};
-  document.addEventListener('keydown',escH);
+  document.addEventListener('keydown',function escH(e){if(e.key==='Escape'){doClose();document.removeEventListener('keydown',escH)}});
 }
 
 
