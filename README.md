@@ -1,38 +1,39 @@
 # PRTS Industrial Monitor
 
-Komari 服务器监控面板主题 — 明日方舟 Endfield 工业结构美风格
+A Komari Monitor theme inspired by Arknights' PRTS (Pharmaceutical Resources Tracking System). Industrial HUD aesthetic with dual-color strategy (blue + yellow), dashed boundaries, and structural beauty.
 
-## 特性
+## Screenshots
 
-- 双色策略蓝+黄设计语言
-- 虚线边界 · 大字锚点 · 工业结构美
-- 亮色/暗色主题切换
-- 世界地图（缩放 + 拖拽）
-- 节点稳定性监测（逐节点查询，防 OOM）
-- 详情页图表（CPU / RAM / Disk / Network / 连接数 / 进程数）
-- 动态时间范围（自动读取服务端保留时长）
-- 图表悬浮 Tooltip
-- 立绘系统（按节点 UUID 哈希分配）
-- 离线卡片闪电特效（canvas）
-- 半调网点装饰（canvas halftone）
-- 6 种卡片变体装饰
-- 账单 / 到期 / 标签展示
-- 搜索 / 分组过滤
-- 响应式移动端适配
+### Dashboard
+![Dashboard Light](screenshots/dashboard-light.jpeg)
+![Dashboard Dark](screenshots/dashboard-dark.jpeg)
 
-## 安装
+### Detail
+![Detail](screenshots/detail.jpeg)
 
-下载 Release 中的 zip 包，在 Komari 后台上传即可。
+### Command Nexus
+![Nexus](screenshots/nexus.jpeg)
 
-## 配置
+### Billing
+![Billing](screenshots/billing.jpeg)
 
-主题安装后可在 Komari 后台配置：
+## Features
 
-- **版本标识** — 面板显示版本号
-- **底部状态栏文字**
-- **立绘图片链接** — 多张用分号分隔，留空禁用
-- **公告内容** — 留空隐藏
+- Industrial HUD dashboard with real-time WebSocket data
+- Detail page with charts, system info, and copy-to-clipboard
+- Command Nexus cockpit — multi-node chart dashboard with core ring animation
+- Billing page — cost overview, regional distribution, risk console, node cost cards
+- Stability / Uptime monitor
+- World Map — global node distribution
+- Visitor IP detection — terminal event card with threat level coloring
+- Dark / Light theme toggle
+- Dynamic time range based on server retention settings
+- Announcement bar support
 
-## License
+## Installation
 
-MIT
+Upload the theme zip in Komari Monitor admin panel.
+
+## Credits
+
+Engineered by [Miuler](https://github.com/saladinxp) · Powered by [Komari Monitor](https://github.com/komari-monitor/komari)
