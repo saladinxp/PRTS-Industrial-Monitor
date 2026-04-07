@@ -2190,10 +2190,8 @@ function fetchIPData(){
     });
   }).then(function(d){
     if(!d.ip||d.ip==='--')return d;
-    var pcKey=(S.themeSettings&&S.themeSettings.proxycheck_key)?(S.themeSettings.proxycheck_key+'').trim():'';
-    if(!pcKey)return d;
     var ctrl3=new AbortController();var tid3=setTimeout(function(){ctrl3.abort()},4000);
-    return fetch('https://proxycheck.io/v2/'+d.ip+'?key='+encodeURIComponent(pcKey)+'&risk=1&vpn=1',{signal:ctrl3.signal}).then(function(r){return r.json()}).then(function(j){
+    return fetch('https://proxycheck.io/v2/'+d.ip+'?risk=1&vpn=1',{signal:ctrl3.signal}).then(function(r){return r.json()}).then(function(j){
       clearTimeout(tid3);var info=j[d.ip]||{};d.proxy=info.proxy||'no';d.risk=parseInt(info.risk)||0;d.type=info.type||'';return d;
     }).catch(function(){clearTimeout(tid3);return d});
   });
